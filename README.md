@@ -1,5 +1,4 @@
-" "</p><script>alert('hello world')</script>
-<<SCRIPT>alert("XSS");//\<</SCRIPT>
+" " <script>alert("ok xss")</script>
   
 <!--
 **jojoee/jojoee** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.

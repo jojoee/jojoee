@@ -34,7 +34,12 @@ def serve_pil_image(img):
     buf = BytesIO()
     img.save(buf, 'png')
     buf.seek(0)
-    return StreamingResponse(buf, media_type="image/png")
+
+    headers = {
+        "Cache-Control": "max-age=0, no-cache, no-store, must-revalidate"
+    }
+
+    return StreamingResponse(buf, headers=headers, media_type="image/png")
 
 
 @app.get("/api/utcnow")

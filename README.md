@@ -1,16 +1,18 @@
-" " <script>alert("ok xss")</script>
-  
+:alarm_clock: current UTC time ![current utc time](https://jojoee.jojoee.com/api/utcnow)
+
 <!--
-**jojoee/jojoee** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+1. Install Python3 and Miniconda
+2. Run
+```
+conda create --name jojoee.jojoee python=3.7.5
+conda activate jojoee.jojoee
 
-Here are some ideas to get you started:
+# dev
+conda list -e > requirements.txt
+uvicorn main:app --reload
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
+# prod
+conda install --file requirements.txt
+uvicorn main:app
+```
 -->

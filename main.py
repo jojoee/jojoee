@@ -18,7 +18,7 @@ def get_utcnow_image():
 
     :return:
     """
-    W, H = (140, 17)
+    W, H = (140, 20)
     github_bgcolor_code = (36, 41, 46)
     github_textcolor_code = (255, 255, 255)
     text = datetime.utcnow().replace(microsecond=0).isoformat()

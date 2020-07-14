@@ -1,4 +1,4 @@
-:alarm_clock: &nbsp; current UTC time ![current utc time](https://jojoee.jojoee.com/api/utcnow)
+![current utc time](https://jojoee.jojoee.com/api/utcnow)
 
 <!--
 1. Install Python3 and Miniconda

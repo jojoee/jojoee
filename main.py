@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request, Response, status
 from datetime import datetime
 from PIL import Image, ImageDraw
 from io import BytesIO
@@ -40,7 +40,24 @@ def serve_pil_image(img):
     return StreamingResponse(buf, headers=headers, media_type="image/png")
 
 
+def is_image_request(request: Request) -> bool:
+    header_sec_fetch_dest = request.headers["sec-fetch-dest"]
+    header_accept = request.headers["accept"]
+    result = (
+        True if header_sec_fetch_dest == "image" else "text/html" not in header_accept
+    )
+
+    return result
+
+
 @app.get("/api/utcnow")
-def api_utcnow():
-    img = get_utcnow_image()
-    return serve_pil_image(img)
+def api_utcnow(request: Request):
+    res = Response(status_code=status.HTTP_200_OK)
+
+    # return an image when it's requested from a <img> html element
+    if is_image_request(request=request):
+        img = get_utcnow_image()
+        res = serve_pil_image(img)
+
+    return res
+

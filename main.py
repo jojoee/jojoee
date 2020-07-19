@@ -52,12 +52,10 @@ def is_image_request(request: Request) -> bool:
 
 @app.get("/api/utcnow")
 def api_utcnow(request: Request):
-    res = Response(status_code=status.HTTP_200_OK)
-
     # return an image when it's requested from a <img> html element
     if is_image_request(request=request):
         img = get_utcnow_image()
-        res = serve_pil_image(img)
-
-    return res
+        return serve_pil_image(img)
+    else:
+        return Response(status_code=status.HTTP_200_OK)
 

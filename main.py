@@ -41,11 +41,10 @@ def serve_pil_image(img):
 
 
 def is_image_request(request: Request) -> bool:
-    header_sec_fetch_dest = request.headers["sec-fetch-dest"]
-    header_accept = request.headers["accept"]
-    result = (
-        True if header_sec_fetch_dest == "image" else "text/html" not in header_accept
-    )
+    headers = request.headers
+    header_sec_fetch_dest = headers["sec-fetch-dest"] if "sec-fetch-dest" in headers else ""
+    header_accept = headers["accept"] if "accept" in headers else ""
+    result = True if header_sec_fetch_dest == "image" else "text/html" not in header_accept
 
     return result
 

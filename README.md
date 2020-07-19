@@ -1,4 +1,4 @@
-<div align="center">
+<div align="left">
   <br>
   <img src="https://jojoee.jojoee.com/api/utcnow" width="120" height="20">
 </div>

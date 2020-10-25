@@ -29,7 +29,7 @@ def percent_to_progressbar(percent: float):
     n_items = math.floor(percent / 100 * bar_length)
     n_spaces = bar_length - n_items
 
-    return "[%s%s]" % (n_items * "#", n_spaces * "-")
+    return "[%s%s]" % (n_items * "*", n_spaces * "-")
 
 
 # get data and convert to Dict[]
@@ -86,7 +86,7 @@ print("""Hi :smiley: :wave:
 In the latest %s commits :bug:, am I morning person ? 
 | | | | |%%|
 | --- | --- | --- | --- | --- |
-| :sunny: | Morning | (06.00-12.00] | %s | %.2f |
+| :sunny: | Morning | (06.00-12.00] | %s | %.0f |
 | :satisfied: | Daytime | (12.00-18.00] | %s | %.2f |
 | :moon: | Evening | (18.00-00.00] | %s | %.2f |
 | :sleeping: | Night | (00.00-06.00] | %s | %.2f |

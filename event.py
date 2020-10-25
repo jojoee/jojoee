@@ -88,7 +88,7 @@ In the latest %s commits :bug:, am I morning person ?
 | --- | --- | --- | --- | --- |
 | :sunny: | Morning | (06.00-12.00] | %s | %.2f |
 | :satisfied: | Daytime | (12.00-18.00] | %s | %.2f |
-| :new_moon: | Evening | (18.00-00.00] | %s | %.2f |
+| :moon: | Evening | (18.00-00.00] | %s | %.2f |
 | :sleeping: | Night | (00.00-06.00] | %s | %.2f |
 
 <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=jojoee&layout=compact" />

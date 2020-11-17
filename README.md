@@ -2,7 +2,7 @@ Hi :smiley: :wave:
 
 <img src="https://jojoee.jojoee.com/api/utcnow" width="120" height="20">
 
-In the latest 59 commits :bug:, am I morning person ? 
+In the latest 58 commits :bug:, am I morning person ? 
 | | | | |%|
 | --- | --- | --- | --- | --- |
 | :sunny: | Morning | (06.00-12.00] | [****----------------] | 24.00 |

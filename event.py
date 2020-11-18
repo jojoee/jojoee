@@ -90,8 +90,6 @@ In the latest %s commits :bug:, am I morning person ?
 | :satisfied: | Daytime | (12.00-18.00] | %s | %.2f |
 | :moon: | Evening | (18.00-00.00] | %s | %.2f |
 | :sleeping: | Night | (00.00-06.00] | %s | %.2f |
-
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=jojoee&layout=compact" />
 """ % (
     n_push_events,
     percent_to_progressbar(clock_percent_d['morning']), clock_percent_d['morning'],

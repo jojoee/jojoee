@@ -1,22 +1,11 @@
 import json
 import urllib.request
-from datetime import datetime
 import math
-import time
 import sys
+import pytz, dateutil.parser
 
 
-def datetime_from_utc_to_local(utc_datetime: datetime):
-    """
-
-    :param utc_datetime:
-    :return:
-    """
-    now_timestamp = time.time()
-    offset = datetime.fromtimestamp(now_timestamp) - datetime.utcfromtimestamp(now_timestamp)
-    return utc_datetime + offset
-
-
+# helper
 def percent_to_progressbar(percent: float):
     """
 
@@ -31,6 +20,24 @@ def percent_to_progressbar(percent: float):
 
     return "[%s%s]" % (n_items * "*", n_spaces * "-")
 
+
+def datetime_from_utc_to_local(date_str: str):
+    """
+
+    :param date_str:
+    :return:
+    """
+
+    global tz
+
+    utctime = dateutil.parser.parse(date_str)
+    localtime = utctime.astimezone(pytz.timezone(tz))
+
+    return localtime
+
+
+# const
+tz = "Asia/Bangkok"
 
 # get data and convert to Dict[]
 target_api = "https://api.github.com/users/jojoee/events?per_page=100"
@@ -55,9 +62,8 @@ for event in events:
 
     # count commit event
     if event_type == "PushEvent":
-        date_str = event['created_at']  # e.g. '2020-10-02T10:05:24Z'
-        date = datetime.strptime(date_str, '%Y-%m-%dT%H:%M:%SZ')  # str to datetime
-        local_date = datetime_from_utc_to_local(date)  # local date
+        # e.g. '2020-10-02T10:05:24Z'
+        local_date = datetime_from_utc_to_local(event['created_at'])
         hr_and_min = float(local_date.strftime('%H.%M'))  # only hr and min
 
         if hr_and_min > 18:

@@ -18,6 +18,14 @@ jobs:
       with:
         python-version: '3.x'
 
+    - name: Display Python version
+      run: python -c "import sys; print(sys.version)"
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
     - name: Update README.md
       run: |
         python event.py > README.md

@@ -27,6 +27,10 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
     - name: Update README.md
+      env:
+        API_KEY: ${{ secrets.API_KEY }}
+        API_SECRET: ${{ secrets.API_SECRET }}
+        SUB_ACCOUNT: ${{ secrets.SUB_ACCOUNT }}
       run: |
         python event.py > README.md
         cat README.md # debug
@@ -39,6 +43,3 @@ jobs:
         message: "bot: update README.md file"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        API_KEY: ${{ secrets.API_KEY }}
-        API_SECRET: ${{ secrets.API_SECRET }}
-        SUB_ACCOUNT: ${{ secrets.SUB_ACCOUNT }}

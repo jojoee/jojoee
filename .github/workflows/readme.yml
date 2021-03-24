@@ -39,3 +39,6 @@ jobs:
         message: "bot: update README.md file"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        API_KEY: ${{ secrets.API_KEY }}
+        API_SECRET: ${{ secrets.API_SECRET }}
+        SUB_ACCOUNT: ${{ secrets.SUB_ACCOUNT }}

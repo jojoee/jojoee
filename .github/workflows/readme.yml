@@ -1,6 +1,9 @@
 name: readme
 
 on:
+  push:
+    branches:
+      - master
   workflow_dispatch:
   schedule:
     - cron: '0 */1 * * *' # every 1 hr

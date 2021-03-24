@@ -3,7 +3,7 @@ name: readme
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 */6 * * *' # every 6 hrs
+    - cron: '0 */1 * * *' # every 1 hr
 
 jobs:
   build:

@@ -6,7 +6,7 @@ on:
       - master
   workflow_dispatch:
   schedule:
-    - cron: '0 */1 * * *' # every 1 hr
+    - cron: '0 */4 * * *' # every 4 hrs
 
 jobs:
   build:

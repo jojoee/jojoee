@@ -30,7 +30,16 @@ def get_current_total_usd():
 
 
 # get and append into csv file then save
-total_usd = get_current_total_usd()
+retry = 3
+total_usd = -1
+for i in range(0, retry):
+    try:
+        total_usd = get_current_total_usd()
+        break
+    except Exception as e:
+        # unused
+        error_message = "can not get total usd from FTX API, cause of %s" % str(e)
+
 now_utc = datetime.now(timezone.utc)
 df = pd.read_csv(df_path)
 df.loc[df.shape[0]] = [now_utc, total_usd]

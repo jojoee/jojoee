@@ -47,7 +47,7 @@ df.to_csv(df_path, index=False)
 
 # plot to ascii graph
 df['utc_date'] = df['utc_datetime'].map(lambda s: str(s)[0:10])  # create date column
-df = df.groupby('utc_date').tail(1)  # group then pick the last
+df = df.groupby('utc_date').nth(0).reset_index()  # group and pick first
 df = df.tail(30)  # only last 30 days
 total_usds = df['total_usd'].tolist()
 dates = df['utc_date'].tolist()

@@ -21,13 +21,13 @@ My crypto trading [duckbot](https://github.com/jojoee/duckbot) performance on [f
   264.44  ┤│
   263.82  ┤│
   263.20  ┤│
-  262.58  ┤│
-  261.96  ┤╰
+  262.58  ┤│╭
+  261.96  ┤╰╯
 1 tick = 1 day
-latest datetime (UTC): 2021-03-24
-latest total usd ($): 261.9649
+latest datetime (UTC): 2021-03-25
+latest total usd ($): 262.2083
 in last 30 records,
   max: 261.9649, min: 270.0000
-  mean: 265.9825, std: 4.0175
+  mean: 264.7244, std: 3.7317
 ``` 
 

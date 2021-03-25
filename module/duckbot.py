@@ -44,7 +44,8 @@ now_utc = datetime.now(timezone.utc)
 df = pd.read_csv(df_path)
 df.loc[df.shape[0]] = [now_utc, total_usd]
 df.to_csv(df_path, index=False)
-
+# fill empty with previous value
+df['total_usd'] = df['total_usd'].replace(to_replace=-1, method='ffill')
 # plot to ascii graph
 df['utc_date'] = df['utc_datetime'].map(lambda s: str(s)[0:10])  # create date column
 df = df.groupby('utc_date').nth(0).reset_index()  # group and pick first

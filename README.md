@@ -26,7 +26,7 @@ My crypto trading [duckbot](https://github.com/jojoee/duckbot) performance on [f
 1 tick = 1 day
 latest datetime (UTC+0): 2021-04-08
 latest USD ($): 294.8007
-latest total USD (BNB + USD) ($): 332.8041
+latest total USD () ($): 332.8041
 in last 30 records,
   max: 256.9280, min: 332.8041
   mean: 295.3667, std: 25.7015

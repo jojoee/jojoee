@@ -9,26 +9,26 @@ In the latest 32 commits :bug:, am I morning person ?
 
 My crypto trading [duckbot](https://github.com/jojoee/duckbot) performance on [ftx.com](https://ftx.com/#a=13144711)
 ```
-  336.35  ┤
-  316.02  ┤         ╭╮  ╭──────
-  295.68  ┤       ╭─╯╰──╯╭╮│
-  275.35  ┤    ╭╮╭╯     ╭╯╰╯
-  255.01  ┤────╯╰╯      │
-  234.68  ┤             │
-  214.34  ┤             │
-  194.01  ┤            ╭╯
-  173.67  ┤         ╭─╮│
-  153.34  ┤       ╭╮│ ╰╯
-  133.00  ┤       │╰╯
-  112.67  ┤    ╭──╯
-   92.33  ┤ ╭──╯
+  337.02  ┤
+  316.63  ┤             ╭───────
+  296.25  ┤       ╭╮╭───╯╭╮│
+  275.86  ┤    ╭╮╭╯╰╯   ╭╯╰╯
+  255.47  ┤────╯╰╯      │
+  235.09  ┤             │
+  214.70  ┤             │
+  194.32  ┤            ╭╯
+  173.93  ┤         ╭─╮│
+  153.54  ┤       ╭╮│ ╰╯
+  133.16  ┤       │╰╯
+  112.77  ┤    ╭──╯
+   92.39  ┤ ╭──╯
    72.00  ┼─╯
 1 tick = 1 day
-latest datetime (UTC+0): 2021-04-12
+latest datetime (UTC+0): 2021-04-13
 latest USD ($): 331.8684
-latest total USD (BNB + USD) ($): 336.3536
+latest total USD (BNB + USD) ($): 337.0180
 in last 30 records,
-  max: 256.9280, min: 336.3536
-  mean: 303.0696, std: 28.0527
+  max: 256.9280, min: 337.0180
+  mean: 304.6127, std: 28.3052
 ``` 
 

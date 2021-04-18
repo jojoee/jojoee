@@ -1,20 +1,20 @@
 Hi :smiley: :wave: <img src="https://jojoee.jojoee.com/api/utcnow" width="120" height="20">
-In the latest 33 commits :bug:, am I morning person ? 
+In the latest 31 commits :bug:, am I morning person ? 
 | | | | |%|
 | --- | --- | --- | --- | --- |
-| :sunny: | Morning | (06.00-12.00] | [*****---------------] | 27.00 |
+| :sunny: | Morning | (06.00-12.00] | [*****---------------] | 29.00 |
 | :satisfied: | Daytime | (12.00-18.00] | [*********-----------] | 48.00 |
-| :moon: | Evening | (18.00-00.00] | [****----------------] | 24.00 |
+| :moon: | Evening | (18.00-00.00] | [****----------------] | 23.00 |
 | :sleeping: | Night | (00.00-06.00] | [--------------------] | 0.00 |
 
 My crypto trading [duckbot](https://github.com/jojoee/duckbot) performance on [ftx.com](https://ftx.com/#a=13144711)
 ```
   606.47  ┤                       ╭╮
   565.36  ┤                       ││
-  524.24  ┤                       │╰
+  524.24  ┤                       │╰─
   483.13  ┤                       │╮
   442.02  ┤                       ││
-  400.90  ┤                       │╰
+  400.90  ┤                       │╰─
   359.79  ┤                ╭─────╮│
   318.68  ┤       ╭────────╯─────╰╯
   277.57  ┤───────╯     ╭╯       ││
@@ -24,11 +24,11 @@ My crypto trading [duckbot](https://github.com/jojoee/duckbot) performance on [f
   113.11  ┼──────╯
    72.00  ┤
 1 tick = 1 day
-latest datetime (UTC+0): 2021-04-17
-latest USD ($): 404.6080
-latest total USD (BNB + USD) ($): 552.0979
+latest datetime (UTC+0): 2021-04-18
+latest USD ($): 405.2271
+latest total USD (BNB + USD) ($): 552.5413
 in last 30 records,
   max: 256.9280, min: 606.4696
-  mean: 327.9738, std: 77.8331
+  mean: 336.2911, std: 87.3627
 ``` 
 

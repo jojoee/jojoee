@@ -11,10 +11,10 @@ My crypto trading [duckbot](https://github.com/jojoee/duckbot) performance on [f
 ```
   606.47  ┤                       ╭╮
   565.36  ┤                       ││
-  524.24  ┤                       │╰─
+  524.24  ┤                       │╰──
   483.13  ┤                       │╮
   442.02  ┤                       ││
-  400.90  ┤                       │╰─
+  400.90  ┤                       │╰──
   359.79  ┤                ╭─────╮│
   318.68  ┤       ╭────────╯─────╰╯
   277.57  ┤───────╯     ╭╯       ││
@@ -24,11 +24,11 @@ My crypto trading [duckbot](https://github.com/jojoee/duckbot) performance on [f
   113.11  ┼──────╯
    72.00  ┤
 1 tick = 1 day
-latest datetime (UTC+0): 2021-04-18
+latest datetime (UTC+0): 2021-04-19
 latest USD ($): 405.2271
-latest total USD (BNB + USD) ($): 552.5413
+latest total USD (BNB + USD) ($): 547.4942
 in last 30 records,
   max: 256.9280, min: 606.4696
-  mean: 336.2911, std: 87.3627
+  mean: 343.8341, std: 94.3179
 ``` 
 

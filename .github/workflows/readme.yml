@@ -34,6 +34,12 @@ jobs:
         API_KEY: ${{ secrets.API_KEY }}
         API_SECRET: ${{ secrets.API_SECRET }}
         SUB_ACCOUNT: ${{ secrets.SUB_ACCOUNT }}
+        API_KEY2: ${{ secrets.API_KEY2 }}
+        API_SECRET2: ${{ secrets.API_SECRET2 }}
+        SUB_ACCOUNT2: ${{ secrets.SUB_ACCOUNT2 }}
+        API_KEY3: ${{ secrets.API_KEY3 }}
+        API_SECRET3: ${{ secrets.API_SECRET3 }}
+        SUB_ACCOUNT3: ${{ secrets.SUB_ACCOUNT3 }}
       run: |
         python event.py > README.md
         cat README.md # debug

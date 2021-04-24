@@ -14,8 +14,8 @@ My crypto trading [duckbot](https://github.com/jojoee/duckbot) performance on [f
   597.17  ┤───────│
   580.99  ┤ │     │
   564.81  ┤ │   ╭─│
-  548.64  ┤ ╰───╯ │
-  532.46  ┤       │
+  548.64  ┤ ╰───╯ │─
+  532.46  ┤       │─
   516.28  ┤       │
   500.11  ┤       │
   483.93  ┤       │
@@ -25,12 +25,12 @@ My crypto trading [duckbot](https://github.com/jojoee/duckbot) performance on [f
   419.22  ┤       │
   403.04  ┤       │
   386.87  ┤       │
-  370.69  ┤       ╰
+  370.69  ┤       ╰─
   354.51  ┤
 1 tick = 1 day
-datetime (UTC+0): 2021-04-23
-duckbot001 total usd: 555.3720$ (grid trading / KZM)
-duckbot002 total usd: 529.8660$ (rebalance BNBBULL/USD 50:50)
-duckbot003 total usd: 354.5146$ (rebalance ADABULL/USD 50:50)
+datetime (UTC+0): 2021-04-24
+duckbot001 total usd: 556.8819$ (grid trading / KZM)
+duckbot002 total usd: 533.5512$ (rebalance BNBBULL/USD 50:50)
+duckbot003 total usd: 361.3050$ (rebalance ADABULL/USD 50:50)
 ```
 

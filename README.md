@@ -9,28 +9,28 @@ In the latest 59 commits :bug:, am I morning person ?
 
 My crypto trading [duckbot](https://github.com/jojoee/duckbot) performance on [ftx.com](https://ftx.com/#a=13144711)
 ```
-  710.95  ┤               ╭─
-  689.93  ┤               │
-  668.91  ┤               │
-  647.89  ┤            ╭╮╭╯
-  626.87  ┤───────╮    │╰╯
-  605.85  ┼───────│    │
-  584.83  ┤ │   ╭╮│    │────
-  563.81  ┤ ╰──╮│╰│──╭─╯
-  542.79  ┤    ╰╯ │─╮│
-  521.77  ┤       │ ╰╯
-  500.75  ┤       │
-  479.73  ┤       │    ╭╮ ╭─
-  458.71  ┤       │    │╰─╯
-  437.68  ┤       │   ╭╯
-  416.66  ┤       │   │
-  395.64  ┤       │   │
-  374.62  ┤       ╰───╯
-  353.60  ┤
+  726.46  ┤
+  704.53  ┤               ╭╮╭
+  682.59  ┤               │╰╯
+  660.66  ┤               │
+  638.73  ┤            ╭╮╭╯
+  616.80  ┤───────╮    │╰╯
+  594.86  ┼───────│    │
+  572.93  ┤ │   ╭╮│    │─────
+  551.00  ┤ ╰─╮ │╰│──╭─╯
+  529.07  ┤   ╰─╯ │─╮│
+  507.13  ┤       │ ╰╯
+  485.20  ┤       │
+  463.27  ┤       │    ╭╮ ╭──
+  441.33  ┤       │    │╰─╯
+  419.40  ┤       │   ╭╯
+  397.47  ┤       │   │
+  375.54  ┤       │╭╮╭╯
+  353.60  ┤       ╰╯╰╯
 1 tick = 1 day
-datetime (UTC+0): 2021-05-02
-duckbot001 total usd: 584.9153$ (grid trading / KZM)
-duckbot002 total usd: 705.8218$ (rebalance BNBBULL/USD 50:50)
-duckbot003 total usd: 462.4625$ (rebalance ADABULL/USD 50:50)
+datetime (UTC+0): 2021-05-03
+duckbot001 total usd: 587.1132$ (grid trading / KZM)
+duckbot002 total usd: 726.4590$ (rebalance BNBBULL/USD 50:50)
+duckbot003 total usd: 464.8607$ (rebalance ADABULL/USD 50:50)
 ```
 

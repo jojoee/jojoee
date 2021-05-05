@@ -10,27 +10,27 @@ In the latest 59 commits :bug:, am I morning person ?
 My crypto trading [duckbot](https://github.com/jojoee/duckbot) performance on [ftx.com](https://ftx.com/#a=13144711)
 ```
   747.35  ┤
-  724.19  ┤                 ╭─
-  701.03  ┤               ╭─╯
+  724.19  ┤                 ╭─╮
+  701.03  ┤               ╭─╯ ╰
   677.87  ┤               │
   654.71  ┤              ╭╯
   631.55  ┤───────╮    ╭─╯
   608.38  ┼───────│    │
-  585.22  ┤ │     │    │ ╭────
+  585.22  ┤ │     │    │ ╭─────
   562.06  ┤ │   ╭─│─╮╭─╯─╯
   538.90  ┤ ╰───╯ │─╮│
   515.74  ┤       │ ╰╯
   492.57  ┤       │
   469.41  ┤       │    ╭╮ ╭──╮
-  446.25  ┤       │    │╰─╯  ╰
+  446.25  ┤       │    │╰─╯  ╰─
   423.09  ┤       │   ╭╯
   399.93  ┤       │   │
   376.77  ┤       │╭╮╭╯
   353.60  ┤       ╰╯╰╯
 1 tick = 1 day
-datetime (UTC+0): 2021-05-04
-duckbot001 total usd: 590.2969$ (grid trading / KZM)
-duckbot002 total usd: 747.3541$ (rebalance BNBBULL/USD 50:50)
-duckbot003 total usd: 445.7117$ (rebalance ADABULL/USD 50:50)
+datetime (UTC+0): 2021-05-05
+duckbot001 total usd: 588.9100$ (grid trading / KZM)
+duckbot002 total usd: 704.0053$ (rebalance BNBBULL/USD 50:50)
+duckbot003 total usd: 442.1088$ (rebalance ADABULL/USD 50:50)
 ```
 

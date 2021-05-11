@@ -74,7 +74,7 @@ def show_duckbot_text() -> None:
 %s
 1 tick = 1 day
 datetime (UTC+0): %s
-duckbot001 total usd: %.4f$ (grid trading / KZM)
+duckbot001 total usd: %.4f$ (rebalance DOGEBULL/USD 50:50)
 duckbot002 total usd: %.4f$ (rebalance BNBBULL/USD 50:50)
 duckbot003 total usd: %.4f$ (rebalance ADABULL/USD 50:50)
 ```

@@ -1,9 +1,9 @@
 Hi :smiley: :wave: <img src="https://jojoee.jojoee.com/api/utcnow" width="120" height="20">
-In the latest 59 commits :bug:, am I morning person ? 
+In the latest 60 commits :bug:, am I morning person ? 
 | | | | |%|
 | --- | --- | --- | --- | --- |
-| :sunny: | Morning | (06.00-12.00] | [******--------------] | 31.00 |
-| :satisfied: | Daytime | (12.00-18.00] | [**********----------] | 53.00 |
+| :sunny: | Morning | (06.00-12.00] | [******--------------] | 32.00 |
+| :satisfied: | Daytime | (12.00-18.00] | [**********----------] | 52.00 |
 | :moon: | Evening | (18.00-00.00] | [***-----------------] | 17.00 |
 | :sleeping: | Night | (00.00-06.00] | [--------------------] | 0.00 |
 
@@ -29,7 +29,7 @@ My crypto trading [duckbot](https://github.com/jojoee/duckbot) performance on [f
   353.60  ┤       ╰──╯
 1 tick = 1 day
 datetime (UTC+0): 2021-05-11
-duckbot001 total usd: 592.8655$ (grid trading / KZM)
+duckbot001 total usd: 592.8655$ (rebalance DOGEBULL/USD 50:50)
 duckbot002 total usd: 703.3975$ (rebalance BNBBULL/USD 50:50)
 duckbot003 total usd: 601.2481$ (rebalance ADABULL/USD 50:50)
 ```

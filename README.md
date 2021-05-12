@@ -11,13 +11,13 @@ My crypto trading [duckbot](https://github.com/jojoee/duckbot) performance on [f
 ```
   785.99  ┤
   760.56  ┤                        ╭╮
-  735.12  ┤                  ╭╮    ││
-  709.69  ┤                 ╭╯│   ╭╯│
-  684.25  ┤               ╭─╯ ╰───╯ ╰
-  658.82  ┤               │
-  633.38  ┤            ╭╮╭╯        ╭╮
-  607.95  ┼───────╮    │╰╯         ││
-  582.51  ┤───────│    │  ╭─────╭──╯╰
+  735.12  ┤                  ╭╮    ││╭
+  709.69  ┤                 ╭╯│   ╭╯││
+  684.25  ┤               ╭─╯ ╰───╯ ╰╯
+  658.82  ┤               │          ╭
+  633.38  ┤            ╭╮╭╯        ╭╮│
+  607.95  ┼───────╮    │╰╯         │││
+  582.51  ┤───────│    │  ╭─────╭──╯╰╯
   557.08  ┤ │   ╭─│─╮╭─╯──╯     │
   531.65  ┤ ╰───╯ │─╮│          │
   506.21  ┤       │ ╰╯         ╭╯
@@ -28,9 +28,9 @@ My crypto trading [duckbot](https://github.com/jojoee/duckbot) performance on [f
   379.04  ┤       │  ╭╯
   353.60  ┤       ╰──╯
 1 tick = 1 day
-datetime (UTC+0): 2021-05-11
-duckbot001 total usd: 592.8655$ (rebalance DOGEBULL/USD 50:50)
-duckbot002 total usd: 703.3975$ (rebalance BNBBULL/USD 50:50)
-duckbot003 total usd: 601.2481$ (rebalance ADABULL/USD 50:50)
+datetime (UTC+0): 2021-05-12
+duckbot001 total usd: 641.8175$ (rebalance DOGEBULL/USD 50:50)
+duckbot002 total usd: 769.4953$ (rebalance BNBBULL/USD 50:50)
+duckbot003 total usd: 682.5855$ (rebalance ADABULL/USD 50:50)
 ```
 

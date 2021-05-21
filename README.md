@@ -9,28 +9,28 @@ In the latest 60 commits :bug:, am I morning person ?
 
 My crypto trading [duckbot](https://github.com/jojoee/duckbot) performance on [ftx.com](https://ftx.com/#a=13144711)
 ```
-  924.62  ┤                        ╭╮
-  880.06  ┤                        ││
-  835.51  ┤                        ││
-  790.95  ┤                  ╭╮    │╰╮
-  746.40  ┤            ╭╮    ││╭╮ ╭╯ ╰╮
-  701.85  ┤         ╭──╯╰────╯╰╯│ │   ╰╮
-  657.29  ┤      ╭╮╭╯        ╭╮╭╮╭╯╮   │
-  612.74  ┤─╮    │╰╯       ╭╮│╰╯││─╮╮  │
-  568.19  ┼─│──╭─╯────────╭╯╰╯  ╰╯│╰╮╭╮│
-  523.63  ┤ │──╯         ╭╯     │╭╯ ╰─╮│
-  479.08  ┤ │    ╭─╮╭──╮ │      ╰╯    ╰│
-  434.52  ┤ │   ╭╯ ╰╯  ╰─╯             │
-  389.97  ┤ │╭╮╭╯                      │
-  345.42  ┤ ╰╯╰╯                       │
-  300.86  ┤                            ╰
-  256.31  ┤                            │
-  211.76  ┤                            ╰
+  924.62  ┤                       ╭╮
+  880.06  ┤                       ││
+  835.51  ┤                       ││
+  790.95  ┤                 ╭╮    │╰╮
+  746.40  ┤           ╭╮    ││╭╮ ╭╯ ╰╮
+  701.85  ┤        ╭──╯╰────╯╰╯│ │   ╰╮
+  657.29  ┤     ╭╮╭╯        ╭╮╭╮╭╯╮   │
+  612.74  ┤╮    │╰╯       ╭╮│╰╯││─╮╮  │
+  568.19  ┼│──╭─╯────────╭╯╰╯  ╰╯│╰╮╭╮│
+  523.63  ┤│──╯         ╭╯     │╭╯ ╰─╮│
+  479.08  ┤│    ╭─╮╭──╮ │      ╰╯    ╰│
+  434.52  ┤│   ╭╯ ╰╯  ╰─╯             │
+  389.97  ┤│╭╮╭╯                      │╭
+  345.42  ┤╰╯╰╯                       ││
+  300.86  ┤                           ╰╯
+  256.31  ┤                           │╭
+  211.76  ┤                           ╰╯
   167.20  ┤
 1 tick = 1 day
-datetime (UTC+0): 2021-05-20
-duckbot001 total usd: 194.9307$ (rebalance DOGEBULL/USD 50:50)
-duckbot002 total usd: 167.2021$ (rebalance BNBBULL/USD 50:50)
-duckbot003 total usd: 284.5277$ (rebalance ADABULL/USD 50:50)
+datetime (UTC+0): 2021-05-21
+duckbot001 total usd: 273.9902$ (rebalance DOGEBULL/USD 50:50)
+duckbot002 total usd: 242.6471$ (rebalance BNBBULL/USD 50:50)
+duckbot003 total usd: 393.0677$ (rebalance ADABULL/USD 50:50)
 ```
 

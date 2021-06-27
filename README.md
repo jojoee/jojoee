@@ -1,9 +1,9 @@
 Hi :smiley: :wave: <img src="https://jojoee.jojoee.com/api/utcnow" width="120" height="20">
-In the latest 39 commits :bug:, am I morning person ? 
+In the latest 38 commits :bug:, am I morning person ? 
 | | | | |%|
 | --- | --- | --- | --- | --- |
-| :sunny: | Morning | (06.00-12.00] | [*******-------------] | 38.00 |
-| :satisfied: | Daytime | (12.00-18.00] | [*********-----------] | 49.00 |
+| :sunny: | Morning | (06.00-12.00] | [*******-------------] | 37.00 |
+| :satisfied: | Daytime | (12.00-18.00] | [**********----------] | 50.00 |
 | :moon: | Evening | (18.00-00.00] | [**------------------] | 13.00 |
 | :sleeping: | Night | (00.00-06.00] | [--------------------] | 0.00 |
 

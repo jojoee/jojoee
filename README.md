@@ -9,28 +9,28 @@ In the latest 38 commits :bug:, am I morning person ?
 
 My crypto trading [duckbot](https://github.com/jojoee/duckbot) performance on [ftx.com](https://ftx.com/#a=13144711)
 ```
-  294.68  ┤╮╭╮
-  280.64  ┤╰╯│╭╮
-  266.59  ┤  ╰╯│ ╭╮
-  252.55  ┤    ╰╮││   ╭╮
-  238.51  ┤     ╰╯╰╮ ╭╯╰─╮
-  224.46  ┼╮       │╭╯   ╰╮ ╭╮
-  210.42  ┤│╭╮     ╰╯     ╰─╯│
-  196.37  ┤╰╯╰─╮             │  ╭╮   ╭─╮
-  182.33  ┤────╮             │  ││ ╭─╯ ╰
-  168.29  ┤    │╮╭╮          │ ╭╯╰─╯
-  154.24  ┤    ╰╮╭╮─╮╭──╮    ╰─╯
-  140.20  ┤     ╰╯╰──╯  ╰────╮
-  126.16  ┤               ╰──│
-  112.11  ┤                  │ ╭─╮  ╭──╮
-   98.07  ┤                  ╰─╯╯╰──╯──╰
-   84.03  ┤                  │ │
-   69.98  ┤                  ╰─╯
+  293.31  ┤─╮
+  279.34  ┤ │╭╮
+  265.38  ┤ ╰╯│ ╭╮
+  251.42  ┤   ╰╮││   ╭╮
+  237.46  ┤    ╰╯╰╮╭─╯╰─╮
+  223.49  ┤       ╰╯    ╰╮ ╭╮
+  209.53  ┤╭╮            ╰─╯│
+  195.57  ┼╯╰─╮             │  ╭╮   ╭───
+  181.60  ┤───╮             │  ││╭──╯
+  167.64  ┤   │╮╭╮          ╰──╯╰╯
+  153.68  ┤   ╰╮╭╮──╭──╮
+  139.72  ┤    ╰╯╰──╯  ╰────╮
+  125.75  ┤               ╰─│
+  111.79  ┤                 │ ╭─╮ ╭╭───╮
+   97.83  ┤                 ╰─╯╯╰──╯╯╰─╰
+   83.87  ┤                 │ │
+   69.90  ┤                 ╰─╯
    55.94  ┤
 1 tick = 1 day
-datetime (UTC+0): 2021-07-02
-duckbot001 total usd: 90.2306$ (rebalance DOGEBULL/USD 50:50)
-duckbot002 total usd: 96.8294$ (rebalance BNBBULL/USD 50:50)
-duckbot003 total usd: 185.9730$ (rebalance ADABULL/USD 50:50)
+datetime (UTC+0): 2021-07-03
+duckbot001 total usd: 88.6177$ (rebalance DOGEBULL/USD 50:50)
+duckbot002 total usd: 94.3664$ (rebalance BNBBULL/USD 50:50)
+duckbot003 total usd: 190.7847$ (rebalance ADABULL/USD 50:50)
 ```
 

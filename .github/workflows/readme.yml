@@ -49,6 +49,6 @@ jobs:
       with:
         author_name: Nathachai Thongniran
         author_email: inid3a@gmail.com
-        message: "bot: update README.md file"
+        message: "ci(bot): update README.md"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

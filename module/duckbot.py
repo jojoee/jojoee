@@ -58,9 +58,10 @@ df.loc[df.shape[0]] = [now_utc] + total_usds  # append to the last
 df.to_csv(df_path, index=False)
 
 # plot to ascii graph
+n_displayed_days = 30
 df['utc_date'] = df['utc_datetime'].map(lambda s: str(s)[0:10])  # create date column
 df = df.groupby('utc_date').nth(0).reset_index()  # group and pick first
-df = df.tail(30)  # only last 30 days
+df = df.tail(n_displayed_days)  # only last 30 days
 
 
 def show_duckbot_text() -> None:
@@ -72,7 +73,7 @@ def show_duckbot_text() -> None:
     print("""My crypto trading [duckbot](https://github.com/jojoee/duckbot) performance on [ftx.com](https://ftx.com/#a=13144711)
 ```
 %s
-1 tick = 1 day
+most recent %d days of portfolio, 1 tick = 1 day
 datetime (UTC+0): %s
 duckbot001 total usd: %.4f$ (rebalance DOGEBULL/USD 50:50)
 duckbot002 total usd: %.4f$ (rebalance BNBBULL/USD 50:50)
@@ -84,6 +85,7 @@ duckbot003 total usd: %.4f$ (rebalance ADABULL/USD 50:50)
             "max": max(flatten_data),
             "height": 16,
         }),
+        n_displayed_days,
         dates[-1],
         df["duckbot001_total_usd"].tolist()[-1],
         df["duckbot002_total_usd"].tolist()[-1],

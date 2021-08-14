@@ -9,28 +9,28 @@ In the latest 7 commits :bug:, am I morning person ?
 
 My crypto trading [duckbot](https://github.com/jojoee/duckbot) performance on [ftx.com](https://ftx.com/#a=13144711)
 ```
-  304.41  ┤
-  289.50  ┤                           ╭─
-  274.59  ┤                           │
-  259.68  ┤                          ╭╯
-  244.78  ┤                          │
-  229.87  ┤                          │
-  214.96  ┤                       ╭╮╭╯
-  200.05  ┤                      ╭╯╰╯
-  185.15  ┤               ╭─╮ ╭──╯
-  170.24  ┤╮         ╭────╯ ╰─╯
-  155.33  ┤╰───╮ ╭───╯                ╭─
-  140.42  ┤    ╰╮│                ╭╮ ╭╯
-  125.52  ┤     ╰╯         ╭──╮╭──╯╰─╯
-  110.61  ┤────╮   ╭───────╯  ╰╯
-   95.70  ┤    ╰╮╭─╯              ╭╮╭───
-   80.79  ┤     ╰╯         ╭╮     │╰╯
-   65.88  ┼─╮╭╮  ╭─────────╯╰─────╯
-   50.98  ┤ ╰╯╰──╯
+  360.77  ┤                            ╭
+  342.55  ┤                            │
+  324.32  ┤                            │
+  306.10  ┤                           ╭╯
+  287.88  ┤                          ╭╯
+  269.65  ┤                         ╭╯
+  251.43  ┤                         │
+  233.21  ┤                         │
+  214.98  ┤                      ╭╮╭╯
+  196.76  ┤               ╭╮ ╭───╯╰╯
+  178.54  ┤         ╭─────╯╰─╯         ╭
+  160.32  ┤───╮ ╭───╯               ╭──╯
+  142.09  ┤   ╰─╯         ╭╮    ╭─╮╭╯
+  123.87  ┤──╮      ╭─────╯╰────╯ ╰╯   ╭
+  105.65  ┤  ╰─╮╭───╯            ╭╮╭───╯
+   87.42  ┤    ╰╯       ╭──╮    ╭╯╰╯
+   69.20  ┼─────────────╯  ╰────╯
+   50.98  ┤
 most recent 30 days of portfolio, 1 tick = 1 day
-datetime (UTC+0): 2021-08-13
-duckbot001 total usd: 95.5219$ (rebalance DOGEBULL/USD 50:50)
-duckbot002 total usd: 156.5285$ (rebalance BNBBULL/USD 50:50)
-duckbot003 total usd: 304.4061$ (rebalance ADABULL/USD 50:50)
+datetime (UTC+0): 2021-08-14
+duckbot001 total usd: 107.5917$ (rebalance DOGEBULL/USD 50:50)
+duckbot002 total usd: 165.8414$ (rebalance BNBBULL/USD 50:50)
+duckbot003 total usd: 360.7681$ (rebalance ADABULL/USD 50:50)
 ```
 

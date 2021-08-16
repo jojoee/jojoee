@@ -62,6 +62,7 @@ n_displayed_days = 90
 df['utc_date'] = df['utc_datetime'].map(lambda s: str(s)[0:10])  # create date column
 df = df.groupby('utc_date').nth(0).reset_index()  # group and pick first
 df = df.tail(n_displayed_days)  # only last 30 days
+n_displayed_days = min(df.shape[0], n_displayed_days)
 
 
 def show_duckbot_text() -> None:

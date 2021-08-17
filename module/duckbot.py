@@ -78,7 +78,7 @@ most recent %d days of portfolio, 1 tick = 1 day
 datetime (UTC+0): %s
 duckbot001 total usd: %.4f$ (rebalance DOGEBULL/USD 50:50)
 duckbot002 total usd: %.4f$ (rebalance BNBBULL/USD 50:50)
-duckbot003 total usd: %.4f$ (rebalance ADABULL/USD 50:50)
+duckbot003 total usd: %.4f$ (rebalance BULL/USD 50:50)
 ```
 """ % (
         asciichartpy.plot(data, cfg={

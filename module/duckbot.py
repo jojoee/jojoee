@@ -22,7 +22,7 @@ def get_total_usd(sub_account: str, api_key: str, api_secret: str) -> float:
     balance = ftx.fetch_balance()
 
     # total usd
-    total_usd = np.sum([coin['usdValue'] for coin in balance['info']['result']])
+    total_usd = np.sum([coin["usdValue"] for coin in balance["info"]["result"]])
 
     return total_usd
 
@@ -59,8 +59,8 @@ df.to_csv(df_path, index=False)
 
 # plot to ascii graph
 n_displayed_days = 90
-df['utc_date'] = df['utc_datetime'].map(lambda s: str(s)[0:10])  # create date column
-df = df.groupby('utc_date').nth(0).reset_index()  # group and pick first
+df["utc_date"] = df["utc_datetime"].map(lambda s: str(s)[0:10])  # create date column
+df = df.groupby("utc_date").nth(0).reset_index()  # group and pick first
 df = df.tail(n_displayed_days)  # only last 30 days
 n_displayed_days = min(df.shape[0], n_displayed_days)
 
@@ -68,7 +68,7 @@ n_displayed_days = min(df.shape[0], n_displayed_days)
 def show_duckbot_text() -> None:
     global df
 
-    dates = df['utc_date'].tolist()
+    dates = df["utc_date"].tolist()
     data = [df["%s_total_usd" % name].tolist() for name in bot_names]
     flatten_data = np.array(data).flatten()
     print("""My crypto trading [duckbot](https://github.com/jojoee/duckbot) performance on [ftx.com](https://ftx.com/#a=13144711)

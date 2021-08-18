@@ -74,12 +74,12 @@ def show_duckbot_text() -> None:
     print("""My crypto trading [duckbot](https://github.com/jojoee/duckbot) performance on [ftx.com](https://ftx.com/#a=13144711)
 ```
 %s
-most recent %d days of portfolio, 1 tick = 1 day
-datetime (UTC+0): %s
-duckbot001 total usd: %.4f$ (rebalance DOGEBULL/USD 50:50)
-duckbot002 total usd: %.4f$ (rebalance BNBBULL/USD 50:50)
-duckbot003 total usd: %.4f$ (rebalance BULL/USD 50:50)
 ```
+most recent %d days of portfolio, 1 tick = 1 day<br />
+last check date (UTC+0): %s
+- duckbot001 total usd: %.4f$ (rebalance [BNBBULL/USD](https://ftx.com/trade/DOGEBULL/USD#a=13144711) 50:50)
+- duckbot002 total usd: %.4f$ (rebalance [BNBBULL/USD](https://ftx.com/trade/BNBBULL/USD#a=13144711) 50:50)
+- duckbot003 total usd: %.4f$ (rebalance [BULL/USD](https://ftx.com/trade/BULL/USD#a=13144711) 50:50)
 """ % (
         asciichartpy.plot(data, cfg={
             "min": min(flatten_data),

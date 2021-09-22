@@ -77,7 +77,7 @@ def show_duckbot_text() -> None:
 ```
 Most recent %d days of portfolio, 1 tick = 1 day<br />
 Last check date (UTC+0): %s
-- duckbot001 total usd: %.4f$ (rebalance [BNBBULL/USD](https://ftx.com/trade/DOGEBULL/USD#a=13144711) 50:50)
+- duckbot001 total usd: %.4f$ (rebalance [DOGEBULL/USD](https://ftx.com/trade/DOGEBULL/USD#a=13144711) 50:50)
 - duckbot002 total usd: %.4f$ (rebalance [BNBBULL/USD](https://ftx.com/trade/BNBBULL/USD#a=13144711) 50:50)
 - duckbot003 total usd: %.4f$ (rebalance [BULL/USD](https://ftx.com/trade/BULL/USD#a=13144711) 50:50)
 """ % (

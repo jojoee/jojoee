@@ -1,11 +1,11 @@
 Hi :smiley: :wave:  
-In the latest 21 commits :bug:, am I morning person ? 
+In the latest 26 commits :bug:, am I morning person ? 
 | | | | |%|
 | --- | --- | --- | --- | --- |
-| :sunny: | Morning | (06.00-12.00] | [*****---------------] | 29.00 |
-| :satisfied: | Daytime | (12.00-18.00] | [******--------------] | 33.00 |
-| :moon: | Evening | (18.00-00.00] | [******--------------] | 33.00 |
-| :sleeping: | Night | (00.00-06.00] | [*-------------------] | 5.00 |
+| :sunny: | Morning | (06.00-12.00] | [****----------------] | 23.00 |
+| :satisfied: | Daytime | (12.00-18.00] | [*****---------------] | 27.00 |
+| :moon: | Evening | (18.00-00.00] | [*********-----------] | 46.00 |
+| :sleeping: | Night | (00.00-06.00] | [--------------------] | 4.00 |
 
 My crypto trading [duckbot](https://github.com/jojoee/duckbot) performance on [ftx.com](https://ftx.com/#a=13144711)
 ```

@@ -13,6 +13,7 @@ class FtxBot:
     sub_account: str
     api_key: str
     api_secret: str
+    initial_fund: float
 
 
 def get_total_usd(sub_account: str, api_key: str, api_secret: str) -> float:
@@ -33,16 +34,19 @@ ftx_bots = [
         os.environ.get('SUB_ACCOUNT'),
         os.environ.get('API_KEY'),
         os.environ.get('API_SECRET'),
+        502.00,
     ),
     FtxBot(
         os.environ.get('SUB_ACCOUNT2'),
         os.environ.get('API_KEY2'),
         os.environ.get('API_SECRET2'),
+        638.49,
     ),
     FtxBot(
         os.environ.get('SUB_ACCOUNT3'),
         os.environ.get('API_KEY3'),
         os.environ.get('API_SECRET3'),
+        647.82
     )
 ]
 bot_names = [bot.sub_account for bot in ftx_bots]
@@ -65,6 +69,10 @@ df = df.tail(n_displayed_days)  # only last 30 days
 n_displayed_days = min(df.shape[0], n_displayed_days)
 
 
+def to_percent(current: float, base: float) -> float:
+    return (current - base) / base * 100
+
+
 def show_duckbot_text() -> None:
     global df
 
@@ -77,9 +85,9 @@ def show_duckbot_text() -> None:
 ```
 Most recent %d days of portfolio, 1 tick = 1 day<br />
 Last check date (UTC+0): %s
-- duckbot001 total usd: %.4f$ (rebalance [DOGEBULL/USD](https://ftx.com/trade/DOGEBULL/USD#a=13144711) 50:50)
-- duckbot002 total usd: %.4f$ (rebalance [BNBBULL/USD](https://ftx.com/trade/BNBBULL/USD#a=13144711) 50:50)
-- duckbot003 total usd: %.4f$ (rebalance [BULL/USD](https://ftx.com/trade/BULL/USD#a=13144711) 50:50)
+- duckbot001 total usd: %.4f/%.2f $ (profit %.2f%%), rebalance [DOGEBULL/USD](https://ftx.com/trade/DOGEBULL/USD#a=13144711) 50:50
+- duckbot002 total usd: %.4f/%.2f $ (profit %.2f%%), rebalance [BNBBULL/USD](https://ftx.com/trade/BNBBULL/USD#a=13144711) 50:50
+- duckbot003 total usd: %.4f/%.2f $ (profit %.2f%%), rebalance [BULL/USD](https://ftx.com/trade/BULL/USD#a=13144711) 50:50
 """ % (
         asciichartpy.plot(data, cfg={
             "min": min(flatten_data),
@@ -88,7 +96,10 @@ Last check date (UTC+0): %s
         }),
         n_displayed_days,
         dates[-1],
-        df["duckbot001_total_usd"].tolist()[-1],
-        df["duckbot002_total_usd"].tolist()[-1],
-        df["duckbot003_total_usd"].tolist()[-1]
+        df["duckbot001_total_usd"].tolist()[-1], ftx_bots[0].initial_fund,
+        to_percent(df["duckbot001_total_usd"].tolist()[-1], ftx_bots[0].initial_fund),
+        df["duckbot002_total_usd"].tolist()[-1], ftx_bots[1].initial_fund,
+        to_percent(df["duckbot002_total_usd"].tolist()[-1], ftx_bots[1].initial_fund),
+        df["duckbot003_total_usd"].tolist()[-1], ftx_bots[2].initial_fund,
+        to_percent(df["duckbot003_total_usd"].tolist()[-1], ftx_bots[2].initial_fund),
     ))

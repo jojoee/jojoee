@@ -87,7 +87,7 @@ clock_percent_d = {
 
 
 def show_commit_text() -> None:
-    print("""In the latest %s commits :bug:, am I morning person ? 
+    print("Hi :smiley: :wave:   , in the latest %s commits :bug:, am I morning person ? 
 | | | | |%%|
 | --- | --- | --- | --- | --- |
 | :sunny: | Morning | (06.00-12.00] | %s | %.2f |

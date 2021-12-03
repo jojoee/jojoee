@@ -3,4 +3,3 @@ from module.duckbot import show_duckbot_text
 
 print("""Hi :smiley: :wave:  """)
 show_commit_text()
-show_duckbot_text()

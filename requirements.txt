@@ -7,3 +7,5 @@ pandas==1.2.3
 python-dateutil==2.8.1
 pytz==2021.1
 uvicorn==0.11.7
+requests==2.25.1
+requests-cache==0.9.3

@@ -6,6 +6,17 @@ import sys
 import pytz, dateutil.parser
 from typing import List
 from datetime import datetime
+import requests
+import requests_cache
+import os
+
+
+# env
+GITHUB_USER = os.environ.get('GH_USER')
+GITHUB_TOKEN = os.environ.get('GH_TOKEN')
+
+# setup cache
+requests_cache.install_cache(cache_name='github_cache', backend='sqlite', expire_after=60 * 5)
 
 
 # helper
@@ -92,9 +103,8 @@ tz = "Asia/Bangkok"
 
 # get data and convert to Dict[]
 target_api = "https://api.github.com/users/jojoee/events?per_page=100"
-res_bytes = urllib.request.urlopen(target_api).read()
-res_str = res_bytes.decode("utf-8")
-events = json.loads(res_str)
+requests_auth = (GITHUB_USER, GITHUB_TOKEN)
+events = requests.get(target_api, auth=requests_auth).json()
 
 # proceed the events
 commit_urls: List[str] = []
@@ -111,9 +121,8 @@ for commit_url in commit_urls:
     time.sleep(0.2)
 
     # proceed
-    res_bytes = urllib.request.urlopen(commit_url).read()
-    res_str = res_bytes.decode("utf-8")
-    res = json.loads(res_str)
+    requests_auth = (GITHUB_USER, GITHUB_TOKEN)
+    res = requests.get(commit_url, auth=requests_auth).json()
 
     # e.g. '2020-10-02T10:05:24Z'
     local_date = datetime_from_utc_to_local(res["commit"]["committer"]["date"])

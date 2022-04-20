@@ -31,6 +31,8 @@ jobs:
 
     - name: Update README.md
       env:
+        GH_USER: ${{ secrets.GH_USER }}
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
         API_KEY: ${{ secrets.API_KEY }}
         API_SECRET: ${{ secrets.API_SECRET }}
         SUB_ACCOUNT: ${{ secrets.SUB_ACCOUNT }}

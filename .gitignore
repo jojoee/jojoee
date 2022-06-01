@@ -1,2 +1,6 @@
+# IDE
 .idea
 __pycache__
+
+# HTTP request cache
+github_cache.sqlite

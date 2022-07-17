@@ -153,4 +153,22 @@ def proceed() -> None:
     }
 
 
+def proceed_dryrun() -> None:
+    global n_commits
+    global clock_percent_d
+
+    n_commits = 142
+    n_morning_commits = 25
+    n_day_commits = 30
+    n_evening_commits = 20
+    n_night_commits = n_commits - n_morning_commits - n_day_commits - n_evening_commits
+    clock_percent_d = {
+        "morning": n_morning_commits,
+        "day": n_day_commits,
+        "evening": n_evening_commits,
+        "night": n_night_commits
+    }
+
+
 proceed()
+# proceed_dryrun()

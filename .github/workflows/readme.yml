@@ -14,43 +14,43 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.8.3'
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8.3'
 
-    - name: Display Python version
-      run: python -c "import sys; print(sys.version)"
+      - name: Display Python version
+        run: python -c "import sys; print(sys.version)"
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-    - name: Update README.md
-      env:
-        GH_USER: ${{ secrets.GH_USER }}
-        GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        API_KEY: ${{ secrets.API_KEY }}
-        API_SECRET: ${{ secrets.API_SECRET }}
-        SUB_ACCOUNT: ${{ secrets.SUB_ACCOUNT }}
-        API_KEY2: ${{ secrets.API_KEY2 }}
-        API_SECRET2: ${{ secrets.API_SECRET2 }}
-        SUB_ACCOUNT2: ${{ secrets.SUB_ACCOUNT2 }}
-        API_KEY3: ${{ secrets.API_KEY3 }}
-        API_SECRET3: ${{ secrets.API_SECRET3 }}
-        SUB_ACCOUNT3: ${{ secrets.SUB_ACCOUNT3 }}
-      run: |
-        python event.py > README.md
-        cat README.md # debug
+      - name: Update README.md
+        env:
+          GH_USER: ${{ secrets.GH_USER }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          API_KEY: ${{ secrets.API_KEY }}
+          API_SECRET: ${{ secrets.API_SECRET }}
+          SUB_ACCOUNT: ${{ secrets.SUB_ACCOUNT }}
+          API_KEY2: ${{ secrets.API_KEY2 }}
+          API_SECRET2: ${{ secrets.API_SECRET2 }}
+          SUB_ACCOUNT2: ${{ secrets.SUB_ACCOUNT2 }}
+          API_KEY3: ${{ secrets.API_KEY3 }}
+          API_SECRET3: ${{ secrets.API_SECRET3 }}
+          SUB_ACCOUNT3: ${{ secrets.SUB_ACCOUNT3 }}
+        run: |
+          python event.py > README.md
+          cat README.md # debug
 
-    - name: Commit changes
-      uses: EndBug/add-and-commit@v5
-      with:
-        author_name: Nathachai Thongniran
-        author_email: inid3a@gmail.com
-        message: "ci(bot): update README.md"
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v5
+        with:
+          author_name: Nathachai Thongniran
+          author_email: inid3a@gmail.com
+          message: "ci(bot): update README.md"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

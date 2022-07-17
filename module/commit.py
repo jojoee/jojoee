@@ -1,19 +1,24 @@
-import json
-import urllib.request
 import math
 import time
 import sys
 import pytz, dateutil.parser
-from typing import List
+from typing import List, Dict
 from datetime import datetime
 import requests
 import requests_cache
 import os
-
+import random
 
 # env
 GITHUB_USER = os.environ.get('GH_USER')
 GITHUB_TOKEN = os.environ.get('GH_TOKEN')
+
+# constant
+tz = "Asia/Bangkok"
+
+# variable
+n_commits: List[str] = []
+clock_percent_d: Dict[str, float] = {}
 
 # setup cache
 requests_cache.install_cache(cache_name='github_cache', backend='sqlite', expire_after=60 * 5)
@@ -98,50 +103,72 @@ def show_commit_text() -> None:
     ))
 
 
-# const
-tz = "Asia/Bangkok"
+def proceed() -> None:
+    global clock_percent_d
+    global n_commits
 
-# get data and convert to Dict[]
-target_api = "https://api.github.com/users/jojoee/events?per_page=100"
-requests_auth = (GITHUB_USER, GITHUB_TOKEN)
-events = requests.get(target_api, auth=requests_auth).json()
-
-# proceed the events
-commit_urls: List[str] = []
-for event in events:
-    # get commit urls
-    if event["type"] == "PushEvent":
-        commit_urls = commit_urls + [commit["url"] for commit in event["payload"]["commits"]]
-
-# TODO: implement asynchronous call like Promise.all
-# get local_dates from each commit
-local_dates: List[datetime] = []
-for commit_url in commit_urls:
-    # rate limit
-    time.sleep(0.2)
-
-    # proceed
+    # get data and convert to Dict[]
+    target_api = "https://api.github.com/users/jojoee/events?per_page=100"
     requests_auth = (GITHUB_USER, GITHUB_TOKEN)
-    res = requests.get(commit_url, auth=requests_auth).json()
+    events = requests.get(target_api, auth=requests_auth).json()
 
-    # e.g. '2020-10-02T10:05:24Z'
-    local_date = datetime_from_utc_to_local(res["commit"]["committer"]["date"])
-    local_dates.append(local_date)
+    # proceed the events
+    commit_urls: List[str] = []
+    for event in events:
+        # get commit urls
+        if event["type"] == "PushEvent":
+            commit_urls = commit_urls + [commit["url"] for commit in event["payload"]["commits"]]
 
-# count the clock
-clock_counts = local_dates_to_clock_count(local_dates)
-clock_count_d = {
-    "morning": clock_counts[0],
-    "day": clock_counts[1],
-    "evening": clock_counts[2],
-    "night": clock_counts[3],
-}
+    # TODO: implement asynchronous call like Promise.all
+    # get local_dates from each commit
+    local_dates: List[datetime] = []
+    for commit_url in commit_urls:
+        # rate limit
+        time.sleep(0.2)
 
-# print
-n_commits = len(commit_urls)
-clock_percent_d = {
-    "morning": round(clock_count_d["morning"] / n_commits, 2) * 100,
-    "day": round(clock_count_d["day"] / n_commits, 2) * 100,
-    "evening": round(clock_count_d["evening"] / n_commits, 2) * 100,
-    "night": round(clock_count_d["night"] / n_commits, 2) * 100,
-}
+        # proceed
+        requests_auth = (GITHUB_USER, GITHUB_TOKEN)
+        res = requests.get(commit_url, auth=requests_auth).json()
+
+        # e.g. '2020-10-02T10:05:24Z'
+        local_date = datetime_from_utc_to_local(res["commit"]["committer"]["date"])
+        local_dates.append(local_date)
+
+    # count the clock
+    clock_counts = local_dates_to_clock_count(local_dates)
+    clock_count_d = {
+        "morning": clock_counts[0],
+        "day": clock_counts[1],
+        "evening": clock_counts[2],
+        "night": clock_counts[3],
+    }
+
+    # print
+    n_commits = len(commit_urls)
+    clock_percent_d = {
+        "morning": round(clock_count_d["morning"] / n_commits, 2) * 100,
+        "day": round(clock_count_d["day"] / n_commits, 2) * 100,
+        "evening": round(clock_count_d["evening"] / n_commits, 2) * 100,
+        "night": round(clock_count_d["night"] / n_commits, 2) * 100,
+    }
+
+
+def proceed_dryrun() -> None:
+    global n_commits
+    global clock_percent_d
+
+    n_commits = 142
+    n_morning_commits = 25
+    n_day_commits = 30
+    n_evening_commits = 20
+    n_night_commits = n_commits - n_morning_commits - n_day_commits - n_evening_commits
+    clock_percent_d = {
+        "morning": n_morning_commits,
+        "day": n_day_commits,
+        "evening": n_evening_commits,
+        "night": n_night_commits
+    }
+
+
+proceed()
+# proceed_dryrun()

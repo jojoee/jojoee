@@ -36,12 +36,6 @@ def is_image_request(request: Request) -> bool:
     return result
 
 
-def image_request_guard(request: Request):
-    # return an image when it's requested from a <img> html element
-    if not is_image_request(request=request):
-        return Response(status_code=status.HTTP_200_OK)
-
-
 @app.get("/")
 def root():
     return {"Hello": "World"}
@@ -50,7 +44,9 @@ def root():
 @app.get("/api/utcnow")
 def api_utcnow(request: Request):
     # guard
-    image_request_guard(request)
+    # return an image when it's requested from a <img> html element
+    if not is_image_request(request=request):
+        return Response(status_code=status.HTTP_200_OK)
 
     # proceed
     img = get_image_from_utcnow()
@@ -62,7 +58,9 @@ def api_utcnow(request: Request):
 @app.get("/api/utcnowimage")
 def api_utcnowimage(request: Request):
     # guard
-    image_request_guard(request)
+    # return an image when it's requested from a <img> html element
+    if not is_image_request(request=request):
+        return Response(status_code=status.HTTP_200_OK)
 
     # proceed
     img = get_image_from_utcnow()
@@ -74,7 +72,9 @@ def api_utcnowimage(request: Request):
 @app.get("/api/utcnowgif")
 def api_utcnowgif(request: Request):
     # guard
-    image_request_guard(request)
+    # return an image when it's requested from a <img> html element
+    if not is_image_request(request=request):
+        return Response(status_code=status.HTTP_200_OK)
 
     # proceed
     gif_path = get_gifpath_from_utcnow()

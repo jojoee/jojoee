@@ -23,7 +23,13 @@ ps -ax | grep uvicorn
 kill <id>
 ```
 
-3. Test `curl localhost:8000/api/utcnow`
+3. Test
+
+```bash
+curl localhost:8000/api/utcnow
+curl localhost:8000/api/utcnowimage
+curl localhost:8000/api/utcnowgif
+````
 
 ## GitHub Actions workflow to generate README.md
 

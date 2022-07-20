@@ -4,3 +4,7 @@ __pycache__
 
 # HTTP request cache
 github_cache.sqlite
+
+# precompute image
+precompute/image/*.png
+precompute/gif/*.gif

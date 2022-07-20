@@ -20,6 +20,7 @@ print(GIF_DIR_PATH)
 print(KEEP_FILE_NAMES_KEY)
 
 
+# TODO remove it cause it is unused
 def get_image_from_utcnow() -> Image:
     text = datetime.utcnow().replace(microsecond=0).isoformat()
 
@@ -117,7 +118,7 @@ def remove_old_gif_files():
     )
 
 
-def remove_old_files(dir_path: str = IMAGE_DIR_PATH, n_seconds: int = 5 * 60, keep_file_names_key=Dict[str, int]):
+def remove_old_files(dir_path: str = IMAGE_DIR_PATH, n_seconds: int = 5 * 60, keep_file_names_key: Dict[str, int] = {}):
     """
 
     :param dir_path: directory of files

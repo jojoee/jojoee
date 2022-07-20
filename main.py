@@ -25,12 +25,7 @@ def root():
 
 @app.get("/api/utcnow")
 @app.get("/api/utcnowimage")
-def api_utcnowimage(request: Request):
-    # guard
-    # return an image when it's requested from a <img> html element
-    if not is_image_request(request=request):
-        return Response(status_code=status.HTTP_200_OK)
-
+def api_utcnowimage():
     # proceed
     img = get_image_from_utcnow()
 
@@ -43,12 +38,7 @@ def api_utcnowimage(request: Request):
 
 
 @app.get("/api/utcnowgif")
-def api_utcnowgif(request: Request):
-    # guard
-    # return an image when it's requested from a <img> html element
-    if not is_image_request(request=request):
-        return Response(status_code=status.HTTP_200_OK)
-
+def api_utcnowgif():
     # proceed
     gif_path = get_gifpath_from_utcnow()
     with open(gif_path, 'rb') as f:

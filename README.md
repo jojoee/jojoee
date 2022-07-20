@@ -6,4 +6,4 @@ Hi :smiley: :wave:   , in the latest 74 commits :bug:, am I morning person ?
 | :moon: | Evening | (18.00-00.00] | [******--------------] | 34.00 |
 | :sleeping: | Night | (00.00-06.00] | [--------------------] | 1.00 |
 
-![Current UTC time](https://jojoee.jojoee.com/api/utcnowgif?refresh)
+![Current UTC time](https://jojoee.jojoee.com/api/utcnowgif?now)

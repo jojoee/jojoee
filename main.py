@@ -81,7 +81,8 @@ def api_utcnowgif(request: Request):
     with open(gif_path, 'rb') as f:
         img_raw = f.read()
     byte_io = BytesIO(img_raw)
-    return StreamingResponse(byte_io, media_type='image/gif')
+    headers = {"Cache-Control": "max-age=0, no-cache, no-store, must-revalidate"}
+    return StreamingResponse(byte_io, headers=headers, media_type='image/gif')
 
 
 @app.on_event("startup")

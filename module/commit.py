@@ -20,6 +20,16 @@ tz = "Asia/Bangkok"
 n_commits: List[str] = []
 clock_percent_d: Dict[str, float] = {}
 
+# argument parsing
+args = sys.argv[1:]
+is_dryrun = False
+for arg in args:
+    if arg.startswith("--dryrun"):
+        is_dryrun = True
+    else:
+        print("you are passing invalid argument", arg)
+        sys.exit(0)
+
 # setup cache
 requests_cache.install_cache(cache_name='github_cache', backend='sqlite', expire_after=60 * 5)
 
@@ -170,5 +180,7 @@ def proceed_dryrun() -> None:
     }
 
 
-proceed()
-# proceed_dryrun()
+if is_dryrun:
+    proceed_dryrun()
+else:
+    proceed()

@@ -29,6 +29,7 @@ kill <id>
 
 ```bash
 python event.py
+python event.py --dryrun
 ```
 
 ## Example

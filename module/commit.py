@@ -7,7 +7,6 @@ from datetime import datetime
 import requests
 import requests_cache
 import os
-import random
 
 # env
 GITHUB_USER = os.environ.get('GH_USER')

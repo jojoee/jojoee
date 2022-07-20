@@ -1,7 +1,8 @@
 import math
 import time
 import sys
-import pytz, dateutil.parser
+import pytz
+import dateutil.parser
 from typing import List, Dict
 from datetime import datetime
 import requests
@@ -96,7 +97,7 @@ def show_commit_text() -> None:
     global clock_percent_d
     global n_commits
 
-    print("""Hi :smiley: :wave:   , in the latest %s commits :bug:, am I morning person ? 
+    print("""Hi :smiley: :wave:   , in the latest %s commits :bug:, am I morning person ?
 | | | | |%%|
 | --- | --- | --- | --- | --- |
 | :sunny: | Morning | (06.00-12.00] | %s | %.2f |

@@ -1,18 +1,19 @@
-from fastapi import FastAPI, Request, Response, status
-from PIL import Image
+from fastapi import FastAPI, Request
 from io import BytesIO
 from starlette.responses import StreamingResponse
-from module.image import get_image_from_utcnow, get_gifpath_from_utcnow, remove_old_image_files, remove_old_gif_files
+from module.image import get_image_from_utcnow, get_gifpath_from_utcnow, \
+    remove_old_image_files, remove_old_gif_files
 from fastapi_utils.tasks import repeat_every
 
 app = FastAPI()
 
 
+# unused
 def is_image_request(request: Request) -> bool:
     headers = request.headers
     header_sec_fetch_dest = headers["sec-fetch-dest"] if "sec-fetch-dest" in headers else ""
     header_accept = headers["accept"] if "accept" in headers else ""
-    result = True if header_sec_fetch_dest == "image" else "text/html" not in header_accept
+    result = header_sec_fetch_dest == "image" or "text/html" not in header_accept
 
     return result
 

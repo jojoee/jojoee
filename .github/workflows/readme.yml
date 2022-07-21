@@ -1,9 +1,6 @@
 name: readme
 
 on:
-  push:
-    branches:
-      - master
   workflow_dispatch:
   schedule:
     - cron: '0 1 * * *' # Cron job every day at 1am

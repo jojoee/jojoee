@@ -4,6 +4,7 @@ from starlette.responses import StreamingResponse
 from module.image import get_image_from_utcnow, get_gifpath_from_utcnow, \
     remove_old_image_files, remove_old_gif_files
 from fastapi_utils.tasks import repeat_every
+from fastapi.responses import RedirectResponse
 
 app = FastAPI()
 
@@ -66,3 +67,10 @@ def remove_old_images() -> None:
 def remove_old_gifs() -> None:
     print("Remove old gifs")
     remove_old_gif_files()
+
+
+# https://fastapi.tiangolo.com/tutorial/handling-errors/
+# https://stackoverflow.com/questions/62986778/fastapi-handling-and-redirecting-404
+@app.exception_handler(404)
+async def custom_404_handler(_, __):
+    return RedirectResponse("/")

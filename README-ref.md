@@ -6,21 +6,28 @@
 ```bash
 conda activate base
 conda remove --name jojoee.jojoee --all
-conda create --name jojoee.jojoee python=3.7.5
+conda create --name jojoee.jojoee python=3.7.13
 conda activate jojoee.jojoee
 
 # dev
 pip freeze > requirements.txt
-uvicorn main:app
-uvicorn main:app --reload
+uvicorn app.main:app --reload
 
 # prod
 pip install -r requirements.txt
-uvicorn main:app &
+uvicorn app.main:app &
 
 # prod restart
 ps -ax | grep uvicorn
 kill <id>
+
+# docker
+docker ps -a
+docker rm ctn_jojoee
+docker build -f ./Dockerfile -t jojoee/jojoee:dev .
+docker run -d --name ctn_jojoee -p 8000:8000 jojoee/jojoee:dev
+docker restart ctn_jojoee
+docker logs ctn_jojoee
 ```
 
 3. Test

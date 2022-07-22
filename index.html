@@ -3,9 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Demo</title>
-</head>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>bahttext.js</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo</title>
+  </head>
 <body>
-  <img src="http://localhost:8000/api/utcnow" alt="" width="120" height="20">
+
+<div class="container">
+  <div class="row">
+    <div class="">
+      <h2>endpoint: http://localhost:8000</h2>
+      <hr>
+      <img src="http://localhost:8000/api/utcnow" alt="" width="120" height="20">
+      <img src="http://localhost:8000/api/utcnowimage" alt="" width="120" height="20">
+      <img src="http://localhost:8000/api/utcnowgif" alt="" width="120" height="20">
+      <img src="http://localhost:8000/api/utcnowgif?refresh" alt="" width="120" height="20">
+    </div>
+
+    <div class="">
+      <h2>endpoint: https://jojoee.jojoee.com</h2>
+      <hr>
+      <img src="https://jojoee.jojoee.com/api/utcnow" alt="" width="120" height="20">
+      <img src="https://jojoee.jojoee.com/api/utcnowimage" alt="" width="120" height="20">
+      <img src="https://jojoee.jojoee.com/api/utcnowgif" alt="" width="120" height="20">
+      <img src="https://jojoee.jojoee.com/api/utcnowgif?refresh" alt="" width="120" height="20">
+    </div>
+  </div>
+</div>
 </body>
 </html>

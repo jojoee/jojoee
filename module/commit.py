@@ -155,6 +155,11 @@ def proceed() -> None:
 
     # print
     n_commits = len(commit_urls)
+
+    # hack exit when no new commits
+    if n_commits <= 0:
+        sys.exit(0)
+
     clock_percent_d = {
         "morning": round(clock_count_d["morning"] / n_commits, 2) * 100,
         "day": round(clock_count_d["day"] / n_commits, 2) * 100,

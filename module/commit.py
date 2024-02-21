@@ -158,6 +158,7 @@ def proceed() -> None:
 
     # hack exit when no new commits
     if n_commits <= 0:
+        print("No new commits then exit")
         sys.exit(0)
 
     clock_percent_d = {

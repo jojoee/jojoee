@@ -8,6 +8,7 @@ from datetime import datetime
 import requests
 import requests_cache
 import os
+import logging
 
 # env
 GITHUB_USER = os.environ.get('GH_USER')
@@ -23,15 +24,31 @@ clock_percent_d: Dict[str, float] = {}
 # argument parsing
 args = sys.argv[1:]
 is_dryrun = False
+is_debug = False
 for arg in args:
     if arg.startswith("--dryrun"):
         is_dryrun = True
+    elif arg.startswith("--debug"):
+        is_debug = True
     else:
-        print("you are passing invalid argument", arg)
-        sys.exit(0)
+        sys.exit("you are passing invalid argument")
+
+# logger
+logging_level = logging.DEBUG if is_debug else logging.INFO
+logging.basicConfig(level=logging_level)
+
+# argument parsing
+logging.info('argument parsing: data %s', args)
 
 # setup cache
-requests_cache.install_cache(cache_name='github_cache', backend='sqlite', expire_after=60 * 5)
+cache_name = 'github_cache'
+logging.info("setup local cache: name %s, start" % cache_name)
+requests_cache.install_cache(
+    cache_name=cache_name,
+    backend='sqlite',
+    expire_after=60 * 30
+)
+logging.info("setup local cache: name %s, finish" % cache_name)
 
 
 # helper
@@ -88,7 +105,8 @@ def local_dates_to_clock_count(dates: List[datetime]) -> [float]:
         elif 0 < hr_and_min <= 6:
             night = night + 1
         else:
-            sys.exit("something went wrong")
+            logging.info("local_dates_to_clock_count: error")
+            sys.exit("local_dates_to_clock_count: error")
 
     return [morning, day, evening, night]
 
@@ -118,9 +136,11 @@ def proceed() -> None:
     global n_commits
 
     # get data and convert to Dict[]
+    logging.info("get event data from github: name jojoee, start")
     target_api = "https://api.github.com/users/jojoee/events?per_page=100"
     requests_auth = (GITHUB_USER, GITHUB_TOKEN)
     events = requests.get(target_api, auth=requests_auth).json()
+    logging.debug("get event data from github: name jojoee, finish, %s", events)
 
     # proceed the events
     commit_urls: List[str] = []
@@ -131,6 +151,7 @@ def proceed() -> None:
 
     # TODO: implement asynchronous call like Promise.all
     # get local_dates from each commit
+    logging.info("get commit data from github: name jojoee, start")
     local_dates: List[datetime] = []
     for commit_url in commit_urls:
         # rate limit
@@ -139,10 +160,12 @@ def proceed() -> None:
         # proceed
         requests_auth = (GITHUB_USER, GITHUB_TOKEN)
         res = requests.get(commit_url, auth=requests_auth).json()
+        logging.debug("get commit data from github: name jojoee, in-progress, %s", res)
 
         # e.g. '2020-10-02T10:05:24Z'
         local_date = datetime_from_utc_to_local(res["commit"]["committer"]["date"])
         local_dates.append(local_date)
+    logging.info("get commit data from github: name jojoee, finish")
 
     # count the clock
     clock_counts = local_dates_to_clock_count(local_dates)
@@ -152,13 +175,15 @@ def proceed() -> None:
         "evening": clock_counts[2],
         "night": clock_counts[3],
     }
+    logging.info("clock_count_d %s", clock_count_d)
 
     # print
     n_commits = len(commit_urls)
+    logging.info("n_commits: %s", n_commits)
 
     # hack exit when no new commits
     if n_commits <= 0:
-        print("No new commits then exit")
+        logging.info("No new commits then exit")
         sys.exit(0)
 
     clock_percent_d = {

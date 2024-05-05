@@ -43,6 +43,7 @@ curl localhost:8000/api/utcnowgif
 ```bash
 python event.py
 python event.py --dryrun
+python event.py --debug
 ```
 
 ## Example

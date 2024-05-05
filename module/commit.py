@@ -79,13 +79,13 @@ def local_dates_to_clock_count(dates: List[datetime]) -> [float]:
     for date in dates:
         hr_and_min = float(date.strftime('%H.%M'))  # only hr and min
 
-        if hr_and_min > 18:
-            evening = evening + 1
-        elif hr_and_min > 12:
-            day = day + 1
-        elif hr_and_min > 6:
+        if 6 < hr_and_min <= 12:
             morning = morning + 1
-        elif hr_and_min > 0:
+        elif 12 < hr_and_min <= 18:
+            day = day + 1
+        elif hr_and_min > 18 or hr_and_min == 0:
+            evening = evening + 1
+        elif 0 < hr_and_min <= 6:
             night = night + 1
         else:
             sys.exit("something went wrong")

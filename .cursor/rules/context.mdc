@@ -1,0 +1,105 @@
+---
+description: jojoee project context and conventions
+globs:
+alwaysApply: true
+---
+
+# jojoee Project
+
+A FastAPI application that generates dynamic GitHub README content showing commit patterns and serves UTC time images/GIFs. See [README.md](../../README.md) for current output.
+
+## Project Structure
+
+```
+jojoee/
+├── app/
+│   └── main.py          # FastAPI application endpoints
+├── module/
+│   ├── commit.py        # GitHub commit analysis logic
+│   └── image.py         # Image/GIF generation utilities
+├── tests/               # pytest tests (test_*.py)
+├── precompute/          # Generated images/GIFs cache
+│   ├── image/           # PNG cache
+│   └── gif/             # GIF cache
+├── event.py             # README generator script (entry point)
+├── Dockerfile           # Container configuration
+├── requirements.txt     # Production dependencies
+└── requirements-dev.txt # Development dependencies
+```
+
+## Technology Stack
+
+- Python 3.8+ with FastAPI
+- pytest for testing, flake8 for linting
+- PIL/Pillow for image generation
+- imageio for GIF creation
+- requests-cache for GitHub API caching
+- Docker with uvicorn for deployment
+
+## Python Conventions
+
+- Use type hints for function parameters and return types: `def get_image_from_text(text: str) -> Image:`
+- Use `Dict`, `List` from typing module: `from typing import List, Dict`
+- Environment variables via `os.environ.get()`: `GITHUB_TOKEN = os.environ.get('GH_TOKEN')`
+- Use docstrings with :param and :return: format for documentation
+- Module-level constants in UPPER_CASE: `IMAGE_DIR_PATH`, `GIF_DIR_PATH`
+
+## FastAPI Conventions
+
+- Route decorators use `@app.get("/path")` pattern
+- Use `Request` and `Response` from fastapi for HTTP handling
+- Return `StreamingResponse` for binary data (images/GIFs)
+- Use `@repeat_every` decorator for scheduled tasks
+
+## Testing Conventions
+
+- Test files: `tests/test_*.py`
+- Use pytest with class-based tests: `class TestRunner:`
+- Test method names: `def test_<description>(self):`
+- Run tests: `pytest tests/`
+
+## Verification Steps
+
+Before committing changes, run these verification steps:
+
+1. **Linting**: `flake8 .` - Check code quality
+2. **Unit Tests**: `pytest tests/` - Verify all tests pass
+3. **Local Server**: `uvicorn app.main:app --reload` - Test endpoints manually
+
+## Local Development
+
+1. Create virtual environment: `python -m venv venv`
+2. Activate: `source venv/bin/activate`
+3. Install dependencies: `pip install -r requirements.txt -r requirements-dev.txt`
+4. Run server: `uvicorn app.main:app --reload --port 8000`
+
+## Docker
+
+Build and run:
+```bash
+docker build -t jojoee .
+docker run -p 8000:8000 jojoee
+```
+
+## CI/CD Workflow
+
+GitHub Actions runs daily at 1am UTC to:
+1. Fetch latest GitHub commit data via `event.py`
+2. Generate new README.md with commit statistics
+3. Auto-commit changes to repository
+
+Required secrets: `GH_USER`, `GH_TOKEN`, `GITHUB_TOKEN`
+
+## API Endpoints
+
+- `GET /` - Health check, returns `{"Hello": "World"}`
+- `GET /api/utcnow` - Returns current UTC time as PNG image
+- `GET /api/utcnowgif` - Returns current UTC time as animated GIF
+
+## Post-Work
+
+After implementing a feature:
+
+1. **Update tests** - Add test cases in `tests/` folder
+2. **Check linting** - Run `flake8 .` and fix issues
+3. **Git commit** - Use semantic-release pattern (feat:, fix:, docs:, etc.)

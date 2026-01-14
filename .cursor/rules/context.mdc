@@ -43,6 +43,15 @@ jojoee/
 - Environment variables via `os.environ.get()`: `GITHUB_TOKEN = os.environ.get('GH_TOKEN')`
 - Use docstrings with :param and :return: format for documentation
 - Module-level constants in UPPER_CASE: `IMAGE_DIR_PATH`, `GIF_DIR_PATH`
+- Use `.get()` for safe dictionary access: `event.get("type")` not `event["type"]`
+- Use `isinstance()` to validate types before processing: `if not isinstance(data, list):`
+- Use f-strings for URL construction: `f"https://api.github.com/repos/{repo}/compare/{sha1}...{sha2}"`
+
+## Exit Code Conventions
+
+- `sys.exit(1)` - Error occurred, fail CI pipeline (no commit)
+- `sys.exit(0)` - Graceful exit, skip remaining steps (no commit)
+- Normal completion - Success, proceed with commit
 
 ## FastAPI Conventions
 
@@ -64,9 +73,10 @@ Before committing changes, run these verification steps:
 
 1. **Syntax Check**: `python3 -m py_compile module/commit.py` - Verify no syntax errors
 2. **Dryrun Test**: `python3 event.py --dryrun` - Test README generation without API calls
-3. **Linting**: `flake8 .` - Check code quality (requires venv activation)
-4. **Unit Tests**: `pytest tests/` - Verify all tests pass (requires venv activation)
-5. **Local Server**: `uvicorn app.main:app --reload` - Test endpoints manually
+3. **Live Test**: `python3 event.py` - Test with real GitHub API calls
+4. **Linting**: `flake8 .` - Check code quality (requires venv activation)
+5. **Unit Tests**: `pytest tests/` - Verify all tests pass (requires venv activation)
+6. **Local Server**: `uvicorn app.main:app --reload` - Test endpoints manually
 
 ## Local Development
 
@@ -82,6 +92,13 @@ Build and run:
 docker build -t jojoee .
 docker run -p 8000:8000 jojoee
 ```
+
+## GitHub API Conventions
+
+- Always validate API response type before iterating: `if not isinstance(events, list): sys.exit(1)`
+- Use Compare API for commit details (Events API omits `commits` array): `/repos/{owner}/{repo}/compare/{before}...{head}`
+- Add rate limiting between API calls: `time.sleep(0.2)`
+- Use tuple auth: `requests.get(url, auth=(GITHUB_USER, GITHUB_TOKEN))`
 
 ## CI/CD Workflow
 
@@ -105,3 +122,13 @@ After implementing a feature:
 1. **Update tests** - Add test cases in `tests/` folder
 2. **Check linting** - Run `flake8 .` and fix issues
 3. **Git commit** - Use semantic-release pattern (feat:, fix:, docs:, etc.)
+
+## Known Issues
+
+- **Broken venv**: The venv has incorrect interpreter paths. Recreate with:
+  ```bash
+  rm -rf venv
+  python3 -m venv venv
+  source venv/bin/activate
+  pip install -r requirements.txt -r requirements-dev.txt
+  ```

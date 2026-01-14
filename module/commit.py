@@ -150,30 +150,30 @@ def proceed() -> None:
     # proceed the events - collect commit data from PushEvents using Compare API
     logging.info("get commit data from github: name jojoee, start")
     local_dates: List[datetime] = []
-    
+
     for event in events:
         if not isinstance(event, dict) or event.get("type") != "PushEvent":
             continue
-            
+
         payload = event.get("payload", {})
         repo_name = event.get("repo", {}).get("name", "")
         before_sha = payload.get("before", "")
         head_sha = payload.get("head", "")
-        
+
         if not (repo_name and before_sha and head_sha):
             continue
-        
+
         compare_url = f"https://api.github.com/repos/{repo_name}/compare/{before_sha}...{head_sha}"
         logging.debug("Using compare API: %s", compare_url)
-        
+
         time.sleep(0.2)  # rate limit
         requests_auth = (GITHUB_USER, GITHUB_TOKEN)
         compare_res = requests.get(compare_url, auth=requests_auth).json()
-        
+
         if not isinstance(compare_res, dict):
             logging.warning("Invalid compare response: %s", compare_res)
             continue
-        
+
         for commit in compare_res.get("commits", []):
             try:
                 commit_date = commit.get("commit", {}).get("committer", {}).get("date", "")
@@ -183,7 +183,7 @@ def proceed() -> None:
             except (KeyError, TypeError) as e:
                 logging.warning("Failed to parse commit date: %s", e)
                 continue
-    
+
     logging.info("get commit data from github: name jojoee, finish")
 
     # print

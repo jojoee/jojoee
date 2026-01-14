@@ -29,7 +29,7 @@ jojoee/
 
 ## Technology Stack
 
-- Python 3.8+ with FastAPI
+- Python 3.12+ with FastAPI
 - pytest for testing, flake8 for linting
 - PIL/Pillow for image generation
 - imageio for GIF creation
@@ -74,13 +74,13 @@ Before committing changes, run these verification steps:
 1. **Syntax Check**: `python3 -m py_compile module/commit.py` - Verify no syntax errors
 2. **Dryrun Test**: `python3 event.py --dryrun` - Test README generation without API calls
 3. **Live Test**: `python3 event.py` - Test with real GitHub API calls
-4. **Linting**: `flake8 .` - Check code quality (requires venv activation)
-5. **Unit Tests**: `pytest tests/` - Verify all tests pass (requires venv activation)
+4. **Linting**: `python -m flake8 --ignore=E501` - Check code quality (matches CI config)
+5. **Unit Tests**: `python -m pytest tests/` - Verify all tests pass
 6. **Local Server**: `uvicorn app.main:app --reload` - Test endpoints manually
 
 ## Local Development
 
-1. Create virtual environment: `python -m venv venv`
+1. Create virtual environment: `python3.12 -m venv venv`
 2. Activate: `source venv/bin/activate`
 3. Install dependencies: `pip install -r requirements.txt -r requirements-dev.txt`
 4. Run server: `uvicorn app.main:app --reload --port 8000`
@@ -120,15 +120,15 @@ Required secrets: `GH_USER`, `GH_TOKEN`, `GITHUB_TOKEN`
 After implementing a feature:
 
 1. **Update tests** - Add test cases in `tests/` folder
-2. **Check linting** - Run `flake8 .` and fix issues
+2. **Check linting** - Run `python -m flake8 --ignore=E501` and fix issues
 3. **Git commit** - Use semantic-release pattern (feat:, fix:, docs:, etc.)
 
 ## Known Issues
 
-- **Broken venv**: The venv has incorrect interpreter paths. Recreate with:
+- **Broken venv**: The venv may have incorrect interpreter paths. Recreate with Python 3.12:
   ```bash
   rm -rf venv
-  python3 -m venv venv
+  python3.12 -m venv venv
   source venv/bin/activate
   pip install -r requirements.txt -r requirements-dev.txt
   ```

@@ -62,9 +62,11 @@ jojoee/
 
 Before committing changes, run these verification steps:
 
-1. **Linting**: `flake8 .` - Check code quality
-2. **Unit Tests**: `pytest tests/` - Verify all tests pass
-3. **Local Server**: `uvicorn app.main:app --reload` - Test endpoints manually
+1. **Syntax Check**: `python3 -m py_compile module/commit.py` - Verify no syntax errors
+2. **Dryrun Test**: `python3 event.py --dryrun` - Test README generation without API calls
+3. **Linting**: `flake8 .` - Check code quality (requires venv activation)
+4. **Unit Tests**: `pytest tests/` - Verify all tests pass (requires venv activation)
+5. **Local Server**: `uvicorn app.main:app --reload` - Test endpoints manually
 
 ## Local Development
 

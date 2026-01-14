@@ -147,7 +147,7 @@ def proceed() -> None:
         logging.error("GitHub API returned error: %s", events)
         sys.exit(1)
 
-    # proceed the events - collect commit data from PushEvents
+    # proceed the events - collect commit data from PushEvents using Compare API
     logging.info("get commit data from github: name jojoee, start")
     local_dates: List[datetime] = []
     
@@ -156,55 +156,33 @@ def proceed() -> None:
             continue
             
         payload = event.get("payload", {})
+        repo_name = event.get("repo", {}).get("name", "")
+        before_sha = payload.get("before", "")
+        head_sha = payload.get("head", "")
         
-        # Method 1: Try to get commits directly from payload
-        commits = payload.get("commits", [])
-        if commits:
-            for commit in commits:
-                if "url" in commit:
-                    time.sleep(0.2)  # rate limit
-                    requests_auth = (GITHUB_USER, GITHUB_TOKEN)
-                    res = requests.get(commit["url"], auth=requests_auth).json()
-                    logging.debug("get commit data: %s", res)
-                    
-                    if not isinstance(res, dict) or "commit" not in res:
-                        logging.warning("Invalid commit response: %s", res)
-                        continue
-                    
-                    try:
-                        local_date = datetime_from_utc_to_local(res["commit"]["committer"]["date"])
-                        local_dates.append(local_date)
-                    except (KeyError, TypeError) as e:
-                        logging.warning("Failed to parse commit date: %s", e)
-                        continue
-        else:
-            # Method 2: Use Compare API when commits array is missing
-            repo_name = event.get("repo", {}).get("name", "")
-            before_sha = payload.get("before", "")
-            head_sha = payload.get("head", "")
-            
-            if repo_name and before_sha and head_sha:
-                compare_url = f"https://api.github.com/repos/{repo_name}/compare/{before_sha}...{head_sha}"
-                logging.debug("Using compare API: %s", compare_url)
-                
-                time.sleep(0.2)  # rate limit
-                requests_auth = (GITHUB_USER, GITHUB_TOKEN)
-                compare_res = requests.get(compare_url, auth=requests_auth).json()
-                
-                if not isinstance(compare_res, dict):
-                    logging.warning("Invalid compare response: %s", compare_res)
-                    continue
-                
-                compare_commits = compare_res.get("commits", [])
-                for commit in compare_commits:
-                    try:
-                        commit_date = commit.get("commit", {}).get("committer", {}).get("date", "")
-                        if commit_date:
-                            local_date = datetime_from_utc_to_local(commit_date)
-                            local_dates.append(local_date)
-                    except (KeyError, TypeError) as e:
-                        logging.warning("Failed to parse compare commit date: %s", e)
-                        continue
+        if not (repo_name and before_sha and head_sha):
+            continue
+        
+        compare_url = f"https://api.github.com/repos/{repo_name}/compare/{before_sha}...{head_sha}"
+        logging.debug("Using compare API: %s", compare_url)
+        
+        time.sleep(0.2)  # rate limit
+        requests_auth = (GITHUB_USER, GITHUB_TOKEN)
+        compare_res = requests.get(compare_url, auth=requests_auth).json()
+        
+        if not isinstance(compare_res, dict):
+            logging.warning("Invalid compare response: %s", compare_res)
+            continue
+        
+        for commit in compare_res.get("commits", []):
+            try:
+                commit_date = commit.get("commit", {}).get("committer", {}).get("date", "")
+                if commit_date:
+                    local_date = datetime_from_utc_to_local(commit_date)
+                    local_dates.append(local_date)
+            except (KeyError, TypeError) as e:
+                logging.warning("Failed to parse commit date: %s", e)
+                continue
     
     logging.info("get commit data from github: name jojoee, finish")
 

@@ -73,9 +73,6 @@ def datetime_from_utc_to_local(date_str: str) -> datetime:
     :param date_str:
     :return:
     """
-
-    global tz
-
     utctime = dateutil.parser.parse(date_str)
     localtime = utctime.astimezone(pytz.timezone(tz))
 
@@ -112,9 +109,6 @@ def local_dates_to_clock_count(dates: List[datetime]) -> [float]:
 
 
 def show_commit_text() -> None:
-    global clock_percent_d
-    global n_commits
-
     print("""Hi :smiley: :wave:   , in the latest %s commits :bug:, am I morning person ?
 | | | | |%%|
 | --- | --- | --- | --- | --- |

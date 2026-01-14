@@ -72,8 +72,6 @@ def get_image_from_text(text: str) -> Image:
 
 
 def get_gifpath_from_utcnow(n_seconds: int = 10) -> str:
-    global IMAGE_DIR_PATH
-
     start_time = datetime.utcnow().replace(microsecond=0)
     start_time_text = start_time.isoformat()
 
@@ -97,9 +95,6 @@ def get_gifpath_from_utcnow(n_seconds: int = 10) -> str:
 
 
 def remove_old_image_files():
-    global IMAGE_DIR_PATH
-    global KEEP_FILE_NAMES_KEY
-
     remove_old_files(
         IMAGE_DIR_PATH,
         5 * 60,
@@ -108,9 +103,6 @@ def remove_old_image_files():
 
 
 def remove_old_gif_files():
-    global GIF_DIR_PATH
-    global KEEP_FILE_NAMES_KEY
-
     remove_old_files(
         GIF_DIR_PATH,
         5 * 60,

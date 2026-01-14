@@ -142,12 +142,19 @@ def proceed() -> None:
     events = requests.get(target_api, auth=requests_auth).json()
     logging.debug("get event data from github: name jojoee, finish, %s", events)
 
+    # validate API response is a list
+    if not isinstance(events, list):
+        logging.error("GitHub API returned error: %s", events)
+        sys.exit(1)
+
     # proceed the events
     commit_urls: List[str] = []
     for event in events:
         # get commit urls
-        if event["type"] == "PushEvent":
-            commit_urls = commit_urls + [commit["url"] for commit in event["payload"]["commits"]]
+        if isinstance(event, dict) and event.get("type") == "PushEvent":
+            payload = event.get("payload", {})
+            commits = payload.get("commits", [])
+            commit_urls = commit_urls + [commit["url"] for commit in commits if "url" in commit]
 
     # TODO: implement asynchronous call like Promise.all
     # get local_dates from each commit
@@ -162,10 +169,28 @@ def proceed() -> None:
         res = requests.get(commit_url, auth=requests_auth).json()
         logging.debug("get commit data from github: name jojoee, in-progress, %s", res)
 
+        # validate commit response
+        if not isinstance(res, dict) or "commit" not in res:
+            logging.warning("Invalid commit response for %s: %s", commit_url, res)
+            continue
+
         # e.g. '2020-10-02T10:05:24Z'
-        local_date = datetime_from_utc_to_local(res["commit"]["committer"]["date"])
-        local_dates.append(local_date)
+        try:
+            local_date = datetime_from_utc_to_local(res["commit"]["committer"]["date"])
+            local_dates.append(local_date)
+        except (KeyError, TypeError) as e:
+            logging.warning("Failed to parse commit date: %s", e)
+            continue
     logging.info("get commit data from github: name jojoee, finish")
+
+    # print
+    n_commits = len(local_dates)
+    logging.info("n_commits: %s", n_commits)
+
+    # no new commits then exit (skip commit step in CI)
+    if n_commits <= 0:
+        logging.info("No new commits found, exiting")
+        sys.exit(0)
 
     # count the clock
     clock_counts = local_dates_to_clock_count(local_dates)
@@ -176,15 +201,6 @@ def proceed() -> None:
         "night": clock_counts[3],
     }
     logging.info("clock_count_d %s", clock_count_d)
-
-    # print
-    n_commits = len(commit_urls)
-    logging.info("n_commits: %s", n_commits)
-
-    # hack exit when no new commits
-    if n_commits <= 0:
-        logging.info("No new commits then exit")
-        sys.exit(0)
 
     clock_percent_d = {
         "morning": round(clock_count_d["morning"] / n_commits, 2) * 100,

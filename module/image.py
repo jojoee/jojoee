@@ -110,7 +110,7 @@ def remove_old_gif_files():
     )
 
 
-def remove_old_files(dir_path: str = IMAGE_DIR_PATH, n_seconds: int = 5 * 60, keep_file_names_key: Dict[str, int] = {}):
+def remove_old_files(dir_path: str = IMAGE_DIR_PATH, n_seconds: int = 5 * 60, keep_file_names_key: Dict[str, int] = None):
     """
 
     :param dir_path: directory of files
@@ -118,6 +118,8 @@ def remove_old_files(dir_path: str = IMAGE_DIR_PATH, n_seconds: int = 5 * 60, ke
     :param keep_file_names_key: e.g. {".gitkeep": 1}
     :return:
     """
+    if keep_file_names_key is None:
+        keep_file_names_key = {}
     now = time.time()
     n_files = 0
     time_str = str(timedelta(seconds=n_seconds))

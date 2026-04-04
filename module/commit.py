@@ -133,7 +133,7 @@ def proceed() -> None:
     logging.info("get event data from github: name jojoee, start")
     target_api = "https://api.github.com/users/jojoee/events?per_page=100"
     requests_auth = (GITHUB_USER, GITHUB_TOKEN)
-    events = requests.get(target_api, auth=requests_auth).json()
+    events = requests.get(target_api, auth=requests_auth, timeout=10.0).json()
     logging.debug("get event data from github: name jojoee, finish, %s", events)
 
     # validate API response is a list
@@ -162,7 +162,7 @@ def proceed() -> None:
 
         time.sleep(0.2)  # rate limit
         requests_auth = (GITHUB_USER, GITHUB_TOKEN)
-        compare_res = requests.get(compare_url, auth=requests_auth).json()
+        compare_res = requests.get(compare_url, auth=requests_auth, timeout=10.0).json()
 
         if not isinstance(compare_res, dict):
             logging.warning("Invalid compare response: %s", compare_res)

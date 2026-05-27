@@ -22,7 +22,9 @@ jobs:
         run: python -c "import sys; print(sys.version)"
 
       - name: Install dependencies
-        run: uv pip install -r requirements.txt
+        run: |
+          uv venv
+          uv pip install -r requirements.txt
 
       - name: Update README.md
         env:
@@ -38,7 +40,7 @@ jobs:
           API_SECRET3: ${{ secrets.API_SECRET3 }}
           SUB_ACCOUNT3: ${{ secrets.SUB_ACCOUNT3 }}
         run: |
-          python event.py > README.md
+          uv run python event.py > README.md
           cat README.md # debug
 
       - name: Commit changes

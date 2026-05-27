@@ -14,13 +14,13 @@ jobs:
       - name: Display Python version
         run: python -c "import sys; print(sys.version)"
       - name: Install dependencies
-        run: uv pip install -r requirements.txt -r requirements-dev.txt
-      - name: Lint with flake8
         run: |
-          # all Python files should follow PEP8 (except some notebooks, see setup.cfg)
-          python -m flake8 --ignore=E501
+          uv venv
+          uv pip install -r requirements.txt -r requirements-dev.txt
+      - name: Lint with flake8
+        run: uv run python -m flake8
       - name: Test with pytest
-        run: python -m pytest tests --cov=./ --cov-report=xml
+        run: uv run python -m pytest tests --cov=./ --cov-report=xml
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
         with:

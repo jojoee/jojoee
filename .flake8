@@ -1,0 +1,8 @@
+[flake8]
+exclude =
+    .venv,
+    __pycache__,
+    .git,
+    precompute,
+    .cursor
+ignore = E501

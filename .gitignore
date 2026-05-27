@@ -2,6 +2,9 @@
 .idea
 __pycache__
 
+# uv virtualenv
+.venv/
+
 # HTTP request cache
 github_cache.sqlite
 

@@ -18,29 +18,31 @@ app/main.py       →  module/image.py  →  precompute/
 
 ## Setup
 
-- **Python**: 3.12+ (matches `.github/workflows/continuous-integration.yml`)
-- **Virtualenv**:
+- **Python**: 3.14.5 (pinned in `.python-version`; matches CI workflows)
+- **Tooling**: [uv](https://docs.astral.sh/uv/)
 
 ```bash
-python3.12 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt -r requirements-dev.txt
+# Install uv: https://docs.astral.sh/uv/getting-started/installation/
+uv python install 3.14.5
+uv venv --python 3.14.5
+source .venv/bin/activate
+uv pip install -r requirements.txt -r requirements-dev.txt
 ```
 
-If `venv` has broken interpreter paths, recreate it:
+If `.venv` has broken interpreter paths, recreate it:
 
 ```bash
-rm -rf venv
-python3.12 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt -r requirements-dev.txt
+rm -rf .venv
+uv venv --python 3.14.5
+source .venv/bin/activate
+uv pip install -r requirements.txt -r requirements-dev.txt
 ```
 
 **Stack**: FastAPI, uvicorn, Pillow, imageio, requests-cache, pytest, flake8.
 
 ## Commands
 
-Run from the repository root after activating `venv`.
+Run from the repository root after activating `.venv`.
 
 | Task | Command |
 |------|---------|
@@ -154,7 +156,7 @@ Image routes use `is_image_request()` so non-image clients get an empty 200 inst
 
 ## CI/CD
 
-**Push** (`.github/workflows/continuous-integration.yml`): flake8 + pytest on Python 3.12.
+**Push** (`.github/workflows/continuous-integration.yml`): flake8 + pytest on Python 3.14.5 via uv.
 
 **Daily README** (`.github/workflows/readme.yml`): cron `0 1 * * *` (1am UTC) runs `python event.py > README.md`, then auto-commits with `ci(bot): update README.md`.
 

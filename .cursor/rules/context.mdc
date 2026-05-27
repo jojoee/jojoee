@@ -29,7 +29,7 @@ jojoee/
 
 ## Technology Stack
 
-- Python 3.12+ with FastAPI
+- Python 3.14.5 with uv and FastAPI
 - pytest for testing, flake8 for linting
 - PIL/Pillow for image generation
 - imageio for GIF creation
@@ -80,10 +80,11 @@ Before committing changes, run these verification steps:
 
 ## Local Development
 
-1. Create virtual environment: `python3.12 -m venv venv`
-2. Activate: `source venv/bin/activate`
-3. Install dependencies: `pip install -r requirements.txt -r requirements-dev.txt`
-4. Run server: `uvicorn app.main:app --reload --port 8000`
+1. Install [uv](https://docs.astral.sh/uv/getting-started/installation/) and Python 3.14.5: `uv python install 3.14.5`
+2. Create virtual environment: `uv venv --python 3.14.5`
+3. Activate: `source .venv/bin/activate`
+4. Install dependencies: `uv pip install -r requirements.txt -r requirements-dev.txt`
+5. Run server: `uvicorn app.main:app --reload --port 8000`
 
 ## Docker
 
@@ -125,10 +126,10 @@ After implementing a feature:
 
 ## Known Issues
 
-- **Broken venv**: The venv may have incorrect interpreter paths. Recreate with Python 3.12:
+- **Broken .venv**: The virtualenv may have incorrect interpreter paths. Recreate with uv:
   ```bash
-  rm -rf venv
-  python3.12 -m venv venv
-  source venv/bin/activate
-  pip install -r requirements.txt -r requirements-dev.txt
+  rm -rf .venv
+  uv venv --python 3.14.5
+  source .venv/bin/activate
+  uv pip install -r requirements.txt -r requirements-dev.txt
   ```

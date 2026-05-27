@@ -1,20 +1,20 @@
 # Server
 
-1. Install Python3 and Miniconda
+1. Install [uv](https://docs.astral.sh/uv/getting-started/installation/) and Python 3.14.5
 2. Run
 
 ```bash
-conda activate base
-conda remove --name jojoee.jojoee --all
-conda create --name jojoee.jojoee python=3.7.13
-conda activate jojoee.jojoee
+uv python install 3.14.5
+uv venv --python 3.14.5
+source .venv/bin/activate
+uv pip install -r requirements.txt -r requirements-dev.txt
 
 # dev
-pip freeze > requirements.txt
+uv pip freeze > requirements.txt
 uvicorn app.main:app --reload
 
 # prod
-pip install -r requirements.txt
+uv pip install -r requirements.txt
 uvicorn app.main:app &
 
 # prod restart
@@ -36,7 +36,7 @@ docker logs ctn_jojoee
 curl localhost:8000/api/utcnow
 curl localhost:8000/api/utcnowimage
 curl localhost:8000/api/utcnowgif
-````
+```
 
 ## GitHub Actions workflow to generate README.md
 

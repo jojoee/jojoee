@@ -12,3 +12,6 @@ precompute/gif/*.gif
 # test
 .coverage
 coverage.xml
+
+# AI
+.cursor

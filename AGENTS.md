@@ -110,11 +110,7 @@ f"https://api.github.com/repos/{repo}/compare/{sha1}...{sha2}"
 
 ## README generation (`event.py`)
 
-`event.py` calls `show_commit_text()` from `module/commit.py`, then prints a UTC GIF markdown footer:
-
-```python
-print("![Current UTC time](https://jojoee.jojoee.com/api/utcnowgif?utcnow)")
-```
+`event.py` calls `show_commit_text()` from `module/commit.py` only.
 
 CI (`.github/workflows/readme.yml`) runs `python event.py > README.md`. Changes to README content belong in `module/commit.py` and/or `event.py`, not manual edits to `README.md`.
 
